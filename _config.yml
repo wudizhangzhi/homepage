@@ -6,10 +6,11 @@
 title: 月牙天冲
 SEOTitle: 月牙天冲的博客
 subtitle: 博客
-description: 智障于梦倩
+description: '月牙天冲在 Github 上的个人博客'
 author: 月牙天冲
 language:  zh-Hans
 timezone:  Asia/Shanghai
+header-img: //o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -84,5 +85,5 @@ post-default-img: http://olch8050n.bkt.clouddn.com/bac2.jpeg
 
 # Sidebar settings
 sidebar: true
-sidebar-about-description: "hi~"
+sidebar-about-description: "月牙天冲在 Github 上的个人博客"
 sidebar-avatar: http://olch8050n.bkt.clouddn.com/avatar.jpg
