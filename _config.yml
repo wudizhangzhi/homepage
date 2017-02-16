@@ -11,7 +11,6 @@ author: 月牙天冲
 language:  zh-Hans
 timezone:  Asia/Shanghai
 header-img: //o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg
-
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://wudizhangzhi.github.io
@@ -36,12 +35,12 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace:
 
@@ -87,3 +86,6 @@ post-default-img: http://olch8050n.bkt.clouddn.com/bac2.jpeg
 sidebar: true
 sidebar-about-description: "月牙天冲在 Github 上的个人博客"
 sidebar-avatar: http://olch8050n.bkt.clouddn.com/avatar.jpg
+#功能标签
+featured-tags: true
+featured-condition-size: 1
