@@ -184,8 +184,9 @@
 <p>返回{}</p>
 <h1 id="2-验证"><a href="#2-验证" class="headerlink" title="2.验证"></a>2.验证</h1><p>我的机器上有个hello-world的镜像，我们要通过docker tag将该镜像标志为要推送到私有仓库，</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo docker tag hello-world:1.0.0 127.0.0.1:5000/hello-world:1.0.0</div><div class="line"></div><div class="line">sudo docker push 127.0.0.1:5000/hello-world:1.0.0</div></pre></td></tr></table></figure>
-<p><img src="/2017/02/17/docker-本地Registry的部署/" alt="logo"><br>验证<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">curl http://127.0.0.1:5000/v2/_catalog</div></pre></td></tr></table></figure></p>
+<p>验证<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">curl http://127.0.0.1:5000/v2/_catalog</div></pre></td></tr></table></figure></p>
 <p>返回json</p>
+<p><img src="/2017/02/17/docker-本地Registry的部署/docker.jpg" alt="logo"></p>
 
                 <hr>
                 
