@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        tags｜月牙天冲的博客
+        Dockerfile的创建｜月牙天冲的博客
         
     </title>
 
-    <link rel="canonical" href="http://wudizhangzhi.github.io/tags/">
+    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/02/17/Dockerfile的创建/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -123,116 +123,170 @@
 </script>
 
 <!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src="http://images2015.cnblogs.com/blog/1003956/201609/1003956-20160929094610156-2054520507.png">
+
+
 <style>
-    .intro-header .site-heading {
-        margin: 50px;
+    
+    header.intro-header {
+        background-image: url('http://images2015.cnblogs.com/blog/1003956/201609/1003956-20160929094610156-2054520507.png');
     }
+
+    
 </style>
 
-<!-- Page Header -->
 <header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading text-center">
-                    <h1>tags</h1>
-                    <span class="subheading">博客</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Dockerfile的创建</h1>
+                    
+                    <span class="meta">
+                         作者 月牙天冲
+                        <span>
+                          日期 2017-02-17
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#docker"
+                           title="docker">docker</a>
+                        
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Dockerfile的创建
+        </span>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 标签云 -->
-            <div id='tag_cloud' class="tags">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <ul>
+<li>FROM <image name=""></image></li>
+</ul>
+<p>指定容器基于哪个基础镜像创建</p>
+<ul>
+<li>MAINTAINER <author name=""></author></li>
+</ul>
+<p>设置镜像的作者</p>
+<ul>
+<li>RUN <commend></commend></li>
+</ul>
+<p>在容器中运行的命令</p>
+<ul>
+<li>ADD <src> <destination></destination></src></li>
+</ul>
+<p>复制文件指令, destination是容器内的路径。source可以是URL或者是启动配置上下文中的一个文件</p>
+<ul>
+<li>CMD</li>
+</ul>
+<p>提供了容器默认的执行命令。 Dockerfile只允许使用一次CMD指令。 使用多个CMD会抵消之前所有的指令，只有最后一个指令生效,CMD有三种形式：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</div><div class="line">CMD [&quot;param1&quot;,&quot;param2&quot;]</div><div class="line">CMD command param1 param2</div></pre></td></tr></table></figure></p>
+<ul>
+<li>EXPOSE <port></port></li>
+</ul>
+<p>指定容器运行在监听的端口</p>
+<ul>
+<li>ENTRYPOINT</li>
+</ul>
+<p>配置给容器一个可执行的命令，这意味着在每次使用镜像创建容器时一个特定的应用程序可以被设置为默认程序。同时也意味着该镜像每次被调用时仅能运行指定的应用。类似于CMD，Docker只允许一个ENTRYPOINT，多个ENTRYPOINT会抵消之前所有的指令，只执行最后的ENTRYPOINT指令。语法如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;,&quot;param2&quot;]</div><div class="line">ENTRYPOINT command param1 param2</div></pre></td></tr></table></figure></p>
+<ul>
+<li>WORKDIR</li>
+</ul>
+<p>指定RUN、CMD与ENTRYPOINT命令的工作目录。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">WORKDIR /path/to/workdir</div></pre></td></tr></table></figure>
+<ul>
+<li>ENV</li>
+</ul>
+<p>设置环境变量。它们使用键值对，增加运行程序的灵活性。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ENV &lt;key&gt; &lt;value&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>USER<br>镜像正在运行时设置一个UID。语法如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">USER &lt;uid&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>VOLUME</li>
+</ul>
+<p>授权访问从容器内到主机上的目录。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">VOLUME [&quot;/data&quot;]</div></pre></td></tr></table></figure>
+<p>例子:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">FROM localhost:5000/ubuntu:14.4</div><div class="line">MAINTAINER wudizhangzhi</div><div class="line">ADD localfile.txt /home/targetfile.txt</div><div class="line">WORKDIR /home/</div><div class="line">RUN pip install -r targetfile.txt</div><div class="line">EXPOSE 7777</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">docker build -t wudizhangzhi/ubuntu:latest .</div></pre></td></tr></table></figure>
+
+                <hr>
                 
-                <a href="#docker" title="docker" rel="2">docker</a>
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/02/17/docker-本地Registry的部署/" data-toggle="tooltip" data-placement="top"
+                           title="docker 本地Registry的部署">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
                 
-                <a href="#Lover" title="Lover" rel="1">Lover</a>
+
                 
-                <a href="#智障" title="智障" rel="1">智障</a>
-                
+
             </div>
 
-            <!-- 标签列表 -->
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="docker">
-                    <span class="tag-text">docker</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/2017/02/17/Dockerfile的创建/">
-                        <h2 class="post-title">
-                            Dockerfile的创建
-                        </h2>
-                        
-                    </a>
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    
                 </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/2017/02/17/docker-本地Registry的部署/">
-                        <h2 class="post-title">
-                            docker 本地Registry的部署
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
             </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Lover">
-                    <span class="tag-text">Lover</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/2017/02/14/Valentine-s-Day/">
-                        <h2 class="post-title">
-                            Valentine's Day
-                        </h2>
-                        
-                        <h3 class="post-subtitle">
-                            for yumengqian
-                        </h3>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="智障">
-                    <span class="tag-text">智障</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/2017/02/14/Valentine-s-Day/">
-                        <h2 class="post-title">
-                            Valentine's Day
-                        </h2>
-                        
-                        <h3 class="post-subtitle">
-                            for yumengqian
-                        </h3>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-
         </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#docker"
+                           title="docker">docker</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
     </div>
-</div>
+</article>
+
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
