@@ -41,9 +41,11 @@ sudo docker tag hello-world:1.0.0 127.0.0.1:5000/hello-world:1.0.0
 
 sudo docker push 127.0.0.1:5000/hello-world:1.0.0
 ```
-![logo](docker.jpg)
 验证
 ```bash
 curl http://127.0.0.1:5000/v2/_catalog
 ```
 返回json
+
+
+![logo](docker-本地Registry的部署/docker.jpg)
