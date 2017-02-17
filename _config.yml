@@ -85,6 +85,20 @@ post-default-img: http://olch8050n.bkt.clouddn.com/bac2.jpeg
 # Sidebar settings
 sidebar: true
 sidebar-about-description: "月牙天冲在 Github 上的个人博客"
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+
+markdown:
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+    - markdown-it-emoji
+# # 多说评论
+# duoshuo_username: 盛夏光年
 sidebar-avatar: http://olch8050n.bkt.clouddn.com/avatar.jpg
 #功能标签
 featured-tags: true
