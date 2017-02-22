@@ -98,7 +98,9 @@ markdown:
     - markdown-it-sup
     - markdown-it-emoji
 # # 多说评论
-# duoshuo_username: 盛夏光年
+# duoshuo_username: 6388056881130112000
+# duoshuo_share: true
+
 sidebar-avatar: http://olch8050n.bkt.clouddn.com/avatar.jpg
 #功能标签
 featured-tags: true
