@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        docker 本地Registry的部署｜月牙天冲的博客
+        算法导论 第二章排序和顺序统计量｜月牙天冲的博客
         
     </title>
 
-    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/02/17/docker-本地Registry的部署/">
+    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/03/02/算法导论-第二章排序和顺序统计量/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -127,13 +127,14 @@
 <!--only post-->
 
 
-<img class="wechat-title-img" src="docker.jpg">
+<img class="wechat-title-img"
+     src="http://olch8050n.bkt.clouddn.com/bac2.jpeg">
 
 
 <style>
     
     header.intro-header {
-        background-image: url('docker.jpg');
+        background-image: url('http://olch8050n.bkt.clouddn.com/bac2.jpeg')
     }
 
     
@@ -144,18 +145,21 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>docker 本地Registry的部署</h1>
+                    <h1>算法导论 第二章排序和顺序统计量</h1>
                     
                     <span class="meta">
                          作者 月牙天冲
                         <span>
-                          日期 2017-02-17
+                          日期 2017-03-02
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#docker"
-                           title="docker">docker</a>
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
+                        
+                        <a class="tag" href="/tags/#算法导论"
+                           title="算法导论">算法导论</a>
                         
                     </div>
                 </div>
@@ -164,7 +168,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            docker 本地Registry的部署
+            算法导论 第二章排序和顺序统计量
         </span>
     </div>
 </header>
@@ -175,33 +179,86 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="1-本地Registry的部署"><a href="#1-本地Registry的部署" class="headerlink" title="1.本地Registry的部署"></a>1.本地Registry的部署</h1><p>运行下面命令获取registry镜像</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo docker pull registry:2.1.1 <span class="comment"># tag版本号随意设置</span></div></pre></td></tr></table></figure>
-<p>然后启动一个容器<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo docker run <span class="_">-d</span> -v /opt/registry:/var/lib/registry -p 5000:5000 --restart=always --name registry registry:2.1.1</div></pre></td></tr></table></figure></p>
-<p>Registry服务默认会将上传的镜像保存在容器的/var/lib/registry，我们将主机的/opt/registry目录挂载到该目录，即可实现将镜像保存到主机的/opt/registry目录了。</p>
-<p>运行docker ps 查看容易运行情况<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">docker ps</div></pre></td></tr></table></figure></p>
-<p>启动了registry服务，打开浏览器输入<a href="http://127.0.0.1:5000/v2" target="_blank" rel="external">http://127.0.0.1:5000/v2</a> ，出现下面情况说明registry运行正常<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">curl localhost:5000/v2</div></pre></td></tr></table></figure></p>
-<p>返回{}</p>
-<h1 id="2-验证"><a href="#2-验证" class="headerlink" title="2.验证"></a>2.验证</h1><p>我的机器上有个hello-world的镜像，我们要通过docker tag将该镜像标志为要推送到私有仓库，</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo docker tag hello-world:1.0.0 127.0.0.1:5000/hello-world:1.0.0</div><div class="line"></div><div class="line">sudo docker push 127.0.0.1:5000/hello-world:1.0.0</div></pre></td></tr></table></figure>
-<p>验证<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">curl http://127.0.0.1:5000/v2/_catalog</div></pre></td></tr></table></figure></p>
-<p>返回json</p>
-<p><img src="/2017/02/17/docker-本地Registry的部署/docker.jpg" alt="logo"></p>
-
+                <table>
+<thead>
+<tr>
+<th>算法</th>
+<th>最坏情况运行时间</th>
+<th>平均/期望运行时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插入排序</td>
+<td>Θ(n**2)</td>
+<td>Θ(n**2)</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>Θ(nlgn)</td>
+<td>Θ(nlgn)</td>
+</tr>
+<tr>
+<td>冒泡排序</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>Θ(n**2)</td>
+<td>Θ(nlgn)</td>
+</tr>
+<tr>
+<td>计数排序</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>基数排序</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>桶排序</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-插入排序"><a href="#1-插入排序" class="headerlink" title="1.插入排序"></a>1.插入排序</h3><ul>
+<li>思路：类似于抽牌的过程，右手一张张地抽牌，每次右手抽的牌对比左手中已经排序好的牌，放在左手相应的位置中<!-- ![example1](算法导论-第二章排序和顺序统计量/pic1.png) -->
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_insert</span><span class="params">(lista)</span>:</span></div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1</span>, len(lista)): <span class="comment"># 右手抽的牌</span></div><div class="line">      right_num = lista[i]</div><div class="line">      j = i <span class="comment">#左手边起始对比的位置</span></div><div class="line">      <span class="keyword">while</span> (j &gt; <span class="number">0</span>) <span class="keyword">and</span> (lista[j<span class="number">-1</span>] &gt; right_num): <span class="comment"># 左边比较大的时候</span></div><div class="line">          lista[j] = lista[j<span class="number">-1</span>] <span class="comment"># 坐标的数字往后移</span></div><div class="line">          j -= <span class="number">1</span></div><div class="line">      lista[j] = right_num</div><div class="line">  <span class="keyword">return</span> lista</div></pre></td></tr></table></figure>
+<h3 id="2-归并排序"><a href="#2-归并排序" class="headerlink" title="2.归并排序"></a>2.归并排序</h3><ul>
+<li><p>思路:</p>
+<ol>
+<li>将数组划分为2个排好顺序的数组A和B</li>
+<li>每次从2个数组中抽出一个最小的放在另一个数组C中，直到A、B其中一个数组被取完，将A、B中未取完的数组放入C中</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_merge</span><span class="params">(lista)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">compare</span><span class="params">(A, B)</span>:</span> <span class="comment">#步骤2</span></div><div class="line">        result = []</div><div class="line">        i, j = <span class="number">0</span>, <span class="number">0</span></div><div class="line">        <span class="keyword">while</span> i &lt; len(A) <span class="keyword">and</span> j &lt; len(B):</div><div class="line">            <span class="keyword">if</span> A[i] &lt; B[j]:</div><div class="line">                result.append(A[i])</div><div class="line">                i += <span class="number">1</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                result.append(B[j])</div><div class="line">                j += <span class="number">1</span></div><div class="line">        result.extend(A[i:])</div><div class="line">        result.extend(B[j:])</div><div class="line">        <span class="keyword">return</span> result</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(lista)</span>:</span> <span class="comment">#步骤1，将数组分为2个数组A,B</span></div><div class="line">        <span class="keyword">if</span> len(lista) == <span class="number">1</span>:</div><div class="line">            <span class="keyword">return</span> lista</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            mid = len(lista) // <span class="number">2</span></div><div class="line">            left = merge(lista[:mid])</div><div class="line">            right = merge(lista[mid:])</div><div class="line">            <span class="keyword">return</span> compare(left, right)</div><div class="line">    <span class="keyword">return</span> merge(lista)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-冒泡排序"><a href="#3-冒泡排序" class="headerlink" title="3.冒泡排序"></a>3.冒泡排序</h3>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/02/17/Dockerfile的创建/" data-toggle="tooltip" data-placement="top"
-                           title="Dockerfile的创建">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/02/14/Valentine-s-Day/" data-toggle="tooltip" data-placement="top"
-                           title="Valentine's Day">Next Post &rarr;</a>
+                        <a href="/2017/02/22/awesome-python/" data-toggle="tooltip" data-placement="top"
+                           title="awesome-python">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -214,7 +271,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-本地Registry的部署"><span class="toc-text">1.本地Registry的部署</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-验证"><span class="toc-text">2.验证</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-插入排序"><span class="toc-text">1.插入排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-归并排序"><span class="toc-text">2.归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-冒泡排序"><span class="toc-text">3.冒泡排序</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -236,8 +293,11 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#docker"
-                           title="docker">docker</a>
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
+                        
+                        <a class="tag" href="/tags/#算法导论"
+                           title="算法导论">算法导论</a>
                         
                     </div>
                 </section>

@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        docker 本地Registry的部署｜月牙天冲的博客
+        月牙天冲的博客
         
     </title>
 
-    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/02/17/docker-本地Registry的部署/">
+    <link rel="canonical" href="http://wudizhangzhi.github.io/tags/算法导论/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -124,137 +124,194 @@
 
 <!-- Main Content -->
 
-<!--only post-->
 
-
-<img class="wechat-title-img" src="docker.jpg">
-
-
-<style>
-    
-    header.intro-header {
-        background-image: url('docker.jpg');
-    }
-
-    
-</style>
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <div class="post-heading">
-                    <h1>docker 本地Registry的部署</h1>
-                    
-                    <span class="meta">
-                         作者 月牙天冲
-                        <span>
-                          日期 2017-02-17
-                         </span>
-                    </span>
-                    <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#docker"
-                           title="docker">docker</a>
-                        
+<!-- Page Header -->
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
+    <div class="row">
+        <header class="intro-header">
+            <div class="container">
+                <div class="site-heading text-center">
+                    <div class="about-me">
+                        <!--移动端头部显示-->
+                        <img src="http://olch8050n.bkt.clouddn.com/avatar.jpg"/>
+                        <h5><a href="/about/">月牙天冲</a></h5>
+                        <p>月牙天冲在 Github 上的个人博客</p>
                     </div>
                 </div>
             </div>
+        </header>
+    </div>
+</div>
+<!-- Main Content -->
+<div class="container custom-haojen-container">
+    <!-- Post Container -->
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
+            <!-- Main Content -->
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2017/03/02/算法导论-第二章排序和顺序统计量/">
+        <h2 class="post-title">
+            算法导论 第二章排序和顺序统计量
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-02
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                
+
+
+算法
+最坏情况运行时间
+平均/期望运行时间
+
+
+
+
+插入排序
+Θ(n**2)
+Θ(n**2)
+
+
+归并排序
+Θ(nlgn)
+Θ(nlgn)
+
+
+冒泡排序
+
+
+
+
+选择排序
+
+
+
+
+堆排序
+
+
+
+
+快速排序
+Θ(n**2)
+Θ(nlgn)
+
+
+计数排序
+
+
+
+
+基数排序
+
+
+
+
+桶排序
+
+
+..
+            </p>
         </div>
-    </div>
-    <div class="post-title-haojen">
-        <span>
-            docker 本地Registry的部署
-        </span>
-    </div>
-</header>
+    </a>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="1-本地Registry的部署"><a href="#1-本地Registry的部署" class="headerlink" title="1.本地Registry的部署"></a>1.本地Registry的部署</h1><p>运行下面命令获取registry镜像</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo docker pull registry:2.1.1 <span class="comment"># tag版本号随意设置</span></div></pre></td></tr></table></figure>
-<p>然后启动一个容器<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo docker run <span class="_">-d</span> -v /opt/registry:/var/lib/registry -p 5000:5000 --restart=always --name registry registry:2.1.1</div></pre></td></tr></table></figure></p>
-<p>Registry服务默认会将上传的镜像保存在容器的/var/lib/registry，我们将主机的/opt/registry目录挂载到该目录，即可实现将镜像保存到主机的/opt/registry目录了。</p>
-<p>运行docker ps 查看容易运行情况<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">docker ps</div></pre></td></tr></table></figure></p>
-<p>启动了registry服务，打开浏览器输入<a href="http://127.0.0.1:5000/v2" target="_blank" rel="external">http://127.0.0.1:5000/v2</a> ，出现下面情况说明registry运行正常<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">curl localhost:5000/v2</div></pre></td></tr></table></figure></p>
-<p>返回{}</p>
-<h1 id="2-验证"><a href="#2-验证" class="headerlink" title="2.验证"></a>2.验证</h1><p>我的机器上有个hello-world的镜像，我们要通过docker tag将该镜像标志为要推送到私有仓库，</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo docker tag hello-world:1.0.0 127.0.0.1:5000/hello-world:1.0.0</div><div class="line"></div><div class="line">sudo docker push 127.0.0.1:5000/hello-world:1.0.0</div></pre></td></tr></table></figure>
-<p>验证<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">curl http://127.0.0.1:5000/v2/_catalog</div></pre></td></tr></table></figure></p>
-<p>返回json</p>
-<p><img src="/2017/02/17/docker-本地Registry的部署/docker.jpg" alt="logo"></p>
+</div>
 
-                <hr>
-                
+<hr>
 
-                <ul class="pager">
+
+
+
+<!-- 翻页 pager -->
+
+<ul class="pager">
+    
+    
+</ul>
+
+
+        </div>
+        <!-- Sidebar Container -->
+        <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+
+            <!-- About Me -->
+            <section class="visible-md visible-lg" style="padding: 0 18px">
+                <div class="short-about">
+                    <!--侧边栏头像-->
                     
-                    <li class="previous">
-                        <a href="/2017/02/17/Dockerfile的创建/" data-toggle="tooltip" data-placement="top"
-                           title="Dockerfile的创建">&larr; Previous Post</a>
-                    </li>
+                    <img src="http://olch8050n.bkt.clouddn.com/avatar.jpg"/>
                     
+                    <h5><a href="/about/">月牙天冲</a></h5>
                     
-                    <li class="next">
-                        <a href="/2017/02/14/Valentine-s-Day/" data-toggle="tooltip" data-placement="top"
-                           title="Valentine's Day">Next Post &rarr;</a>
-                    </li>
+                    <p>月牙天冲在 Github 上的个人博客</p>
                     
-                </ul>
+                    <hr>
+                    <!-- SNS Link 社交 -->
+                    <ul class="list-inline">
+                        
+                        
+                        
 
-                
+                        
 
-                
+                        
 
-            </div>
+                        
 
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-本地Registry的部署"><span class="toc-text">1.本地Registry的部署</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-验证"><span class="toc-text">2.验证</span></a></li></ol>
+                        
+                    </ul>
                 </div>
-            </div>
+            </section>
+
+            <!-- Featured Tags  标签 -->
+            
+            <section>
+                <div class="tags">
+                    
+                    
+                    <a href="/tags/#docker" title="docker"
+                       rel="2">docker</a>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <a href="/tags/#学习笔记" title="学习笔记"
+                       rel="3">学习笔记</a>
+                    
+                    
+                    
+                    <a href="/tags/#python" title="python"
+                       rel="2">python</a>
+                    
+                    
+                    
+                    
+                </div>
+            </section>
+            
+
+            
+
         </div>
-
-        <div class="row">
-            <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
-                    </h5>
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/#docker"
-                           title="docker">docker</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
-        </div>
-
     </div>
-</article>
-
-
-
-
-
+</div>
 
 <!-- Footer -->
 <!-- Footer -->
