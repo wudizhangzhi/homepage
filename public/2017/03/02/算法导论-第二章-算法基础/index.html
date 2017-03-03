@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        算法导论 第二章排序和顺序统计量｜月牙天冲的博客
+        算法导论 第二章 算法基础｜月牙天冲的博客
         
     </title>
 
-    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/03/02/算法导论-第二章排序和顺序统计量/">
+    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/03/02/算法导论-第二章-算法基础/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -145,7 +145,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>算法导论 第二章排序和顺序统计量</h1>
+                    <h1>算法导论 第二章 算法基础</h1>
                     
                     <span class="meta">
                          作者 月牙天冲
@@ -168,7 +168,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            算法导论 第二章排序和顺序统计量
+            算法导论 第二章 算法基础
         </span>
     </div>
 </header>
@@ -200,13 +200,13 @@
 </tr>
 <tr>
 <td>冒泡排序</td>
-<td></td>
-<td></td>
+<td>Θ(n**2)</td>
+<td>Θ(n**2)</td>
 </tr>
 <tr>
 <td>选择排序</td>
-<td></td>
-<td></td>
+<td>Θ(n**2)</td>
+<td>Θ(n**2)</td>
 </tr>
 <tr>
 <td>堆排序</td>
@@ -236,20 +236,31 @@
 </tbody>
 </table>
 <h3 id="1-插入排序"><a href="#1-插入排序" class="headerlink" title="1.插入排序"></a>1.插入排序</h3><ul>
-<li>思路：类似于抽牌的过程，右手一张张地抽牌，每次右手抽的牌对比左手中已经排序好的牌，放在左手相应的位置中<!-- ![example1](算法导论-第二章排序和顺序统计量/pic1.png) -->
+<li>思路：类似于抽牌的过程，右手一张张地抽牌，每次右手抽的牌对比左手中已经排序好的牌，放在左手相应的位置中<!-- ![example1](算法导论-第二章-算法基础/pic1.png) -->
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_insert</span><span class="params">(lista)</span>:</span></div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1</span>, len(lista)): <span class="comment"># 右手抽的牌</span></div><div class="line">      right_num = lista[i]</div><div class="line">      j = i <span class="comment">#左手边起始对比的位置</span></div><div class="line">      <span class="keyword">while</span> (j &gt; <span class="number">0</span>) <span class="keyword">and</span> (lista[j<span class="number">-1</span>] &gt; right_num): <span class="comment"># 左边比较大的时候</span></div><div class="line">          lista[j] = lista[j<span class="number">-1</span>] <span class="comment"># 坐标的数字往后移</span></div><div class="line">          j -= <span class="number">1</span></div><div class="line">      lista[j] = right_num</div><div class="line">  <span class="keyword">return</span> lista</div></pre></td></tr></table></figure>
 <h3 id="2-归并排序"><a href="#2-归并排序" class="headerlink" title="2.归并排序"></a>2.归并排序</h3><ul>
-<li><p>思路:</p>
-<ol>
+<li>思路:<ol>
 <li>将数组划分为2个排好顺序的数组A和B</li>
 <li>每次从2个数组中抽出一个最小的放在另一个数组C中，直到A、B其中一个数组被取完，将A、B中未取完的数组放入C中</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_merge</span><span class="params">(lista)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">compare</span><span class="params">(A, B)</span>:</span> <span class="comment">#步骤2</span></div><div class="line">        result = []</div><div class="line">        i, j = <span class="number">0</span>, <span class="number">0</span></div><div class="line">        <span class="keyword">while</span> i &lt; len(A) <span class="keyword">and</span> j &lt; len(B):</div><div class="line">            <span class="keyword">if</span> A[i] &lt; B[j]:</div><div class="line">                result.append(A[i])</div><div class="line">                i += <span class="number">1</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                result.append(B[j])</div><div class="line">                j += <span class="number">1</span></div><div class="line">        result.extend(A[i:])</div><div class="line">        result.extend(B[j:])</div><div class="line">        <span class="keyword">return</span> result</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(lista)</span>:</span> <span class="comment">#步骤1，将数组分为2个数组A,B</span></div><div class="line">        <span class="keyword">if</span> len(lista) == <span class="number">1</span>:</div><div class="line">            <span class="keyword">return</span> lista</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            mid = len(lista) // <span class="number">2</span></div><div class="line">            left = merge(lista[:mid])</div><div class="line">            right = merge(lista[mid:])</div><div class="line">            <span class="keyword">return</span> compare(left, right)</div><div class="line">    <span class="keyword">return</span> merge(lista)</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="3-冒泡排序"><a href="#3-冒泡排序" class="headerlink" title="3.冒泡排序"></a>3.冒泡排序</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_merge</span><span class="params">(lista)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">compare</span><span class="params">(A, B)</span>:</span> <span class="comment">#步骤2</span></div><div class="line">        result = []</div><div class="line">        i, j = <span class="number">0</span>, <span class="number">0</span></div><div class="line">        <span class="keyword">while</span> i &lt; len(A) <span class="keyword">and</span> j &lt; len(B):</div><div class="line">            <span class="keyword">if</span> A[i] &lt; B[j]:</div><div class="line">                result.append(A[i])</div><div class="line">                i += <span class="number">1</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                result.append(B[j])</div><div class="line">                j += <span class="number">1</span></div><div class="line">        result.extend(A[i:])</div><div class="line">        result.extend(B[j:])</div><div class="line">        <span class="keyword">return</span> result</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(lista)</span>:</span> <span class="comment">#步骤1，将数组分为2个数组A,B</span></div><div class="line">        <span class="keyword">if</span> len(lista) == <span class="number">1</span>:</div><div class="line">            <span class="keyword">return</span> lista</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            mid = len(lista) // <span class="number">2</span></div><div class="line">            left = merge(lista[:mid])</div><div class="line">            right = merge(lista[mid:])</div><div class="line">            <span class="keyword">return</span> compare(left, right)</div><div class="line">    <span class="keyword">return</span> merge(lista)</div></pre></td></tr></table></figure>
+<h3 id="3-冒泡排序"><a href="#3-冒泡排序" class="headerlink" title="3.冒泡排序"></a>3.冒泡排序</h3><ul>
+<li>思路: 从左往右，从第一个数字开始，左边一个与右边一个数字对比，如果左边比右边大，就交换顺序，然后再从第二个数字开始迭代</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_bubble</span><span class="params">(lista)</span>:</span></div><div class="line">  length = len(lista)</div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> xrange(length<span class="number">-1</span>):</div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> xrange(i, length<span class="number">-1</span>):</div><div class="line">      <span class="keyword">if</span> lista[j] &gt; lista[j+<span class="number">1</span>]: <span class="comment">#如果左边大于右边，交换位置</span></div><div class="line">        lista[j], lista[j+<span class="number">1</span>] = lista[j+<span class="number">1</span>], lista[j]</div><div class="line">  <span class="keyword">return</span> lista</div></pre></td></tr></table></figure>
+<h3 id="4-选择排序"><a href="#4-选择排序" class="headerlink" title="4.选择排序"></a>4.选择排序</h3><ul>
+<li>思路: 类似于冒泡排序，但是循环的时候是找出最小的数值，与循环的起始位置交换顺序</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_selection</span><span class="params">(lista)</span>:</span></div><div class="line">  length = len(lista)</div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> xrange(length - <span class="number">1</span>):</div><div class="line">    minum = i</div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> xrange(i, length):</div><div class="line">      <span class="keyword">if</span> lista[j] &lt; lista[minum]:</div><div class="line">        minum = j</div><div class="line">    lista[i] = lista[minum]</div><div class="line">  <span class="keyword">return</span> lista</div></pre></td></tr></table></figure>
+<h3 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5.快速排序"></a>5.快速排序</h3><ul>
+<li>思路:<br>  1.将数组的第一个数字定为基准数flag，将数组中比flag小的放置在flag左边，比flag大的放置在右边<br>  2.对flag左边的和右边的数组重复步骤1</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_fast</span><span class="params">(lista)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sub_flag</span><span class="params">(array, start, end)</span>:</span> <span class="comment"># 步骤1</span></div><div class="line">        flag = array[start]<span class="comment">#确定flag</span></div><div class="line">        <span class="keyword">while</span> start &gt; end:</div><div class="line">            <span class="keyword">while</span> (start &gt; end) <span class="keyword">and</span> array[end] &gt; flag: <span class="comment"># 比flag大</span></div><div class="line">                end -= <span class="number">1</span> <span class="comment"># 数字位置不变，比较的位置左移一格</span></div><div class="line">            <span class="keyword">while</span> (start &gt; end) <span class="keyword">and</span> array[end] &lt; flag: <span class="comment"># 比flag小</span></div><div class="line">                array[start] = array[end] <span class="comment"># 移动到左边</span></div><div class="line">                start += <span class="number">1</span></div><div class="line">                array[end] = array[start] <span class="comment"># 将之前左边的数字右边一个未比较的数字移动到右边原来的位置</span></div><div class="line">            array[start] = flag</div><div class="line">        <span class="keyword">return</span> start <span class="comment"># 返回flag的位置</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">quick</span><span class="params">(array, start, end)</span>:</span> <span class="comment"># 步骤2</span></div><div class="line">        <span class="keyword">if</span> start &gt; end:</div><div class="line">            flag_index = sub_flag(array, start, end)</div><div class="line">            quick(array, start, flag_index)</div><div class="line">            quick(array, flag_index + <span class="number">1</span>, end)</div><div class="line">    quick(lista, <span class="number">0</span>, len(lista))</div><div class="line">    <span class="keyword">return</span> lista</div></pre></td></tr></table></figure>
+
                 <hr>
                 
 
@@ -271,7 +282,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-插入排序"><span class="toc-text">1.插入排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-归并排序"><span class="toc-text">2.归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-冒泡排序"><span class="toc-text">3.冒泡排序</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-插入排序"><span class="toc-text">1.插入排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-归并排序"><span class="toc-text">2.归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-冒泡排序"><span class="toc-text">3.冒泡排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-选择排序"><span class="toc-text">4.选择排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-快速排序"><span class="toc-text">5.快速排序</span></a></li></ol>
                 </div>
             </div>
         </div>
