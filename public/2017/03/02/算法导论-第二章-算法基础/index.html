@@ -182,6 +182,7 @@
                 <table>
 <thead>
 <tr>
+<th></th>
 <th>算法</th>
 <th>最坏情况运行时间</th>
 <th>平均/期望运行时间</th>
@@ -189,46 +190,55 @@
 </thead>
 <tbody>
 <tr>
+<td>1</td>
 <td>插入排序</td>
 <td>Θ(n**2)</td>
 <td>Θ(n**2)</td>
 </tr>
 <tr>
+<td>2</td>
 <td>归并排序</td>
 <td>Θ(nlgn)</td>
 <td>Θ(nlgn)</td>
 </tr>
 <tr>
+<td>3</td>
 <td>冒泡排序</td>
 <td>Θ(n**2)</td>
 <td>Θ(n**2)</td>
 </tr>
 <tr>
+<td>4</td>
 <td>选择排序</td>
 <td>Θ(n**2)</td>
 <td>Θ(n**2)</td>
 </tr>
 <tr>
+<td>5</td>
 <td>堆排序</td>
-<td></td>
+<td>Θ(nlgn)</td>
 <td></td>
 </tr>
 <tr>
+<td>6</td>
 <td>快速排序</td>
 <td>Θ(n**2)</td>
 <td>Θ(nlgn)</td>
 </tr>
 <tr>
+<td>7</td>
 <td>计数排序</td>
-<td></td>
-<td></td>
+<td>Θ(n + k)</td>
+<td>Θ(n + k)  </td>
 </tr>
 <tr>
+<td>8</td>
 <td>基数排序</td>
-<td></td>
-<td></td>
+<td>Θ(d(n + k))</td>
+<td>Θ(d(n + k))</td>
 </tr>
 <tr>
+<td>9</td>
 <td>桶排序</td>
 <td></td>
 <td></td>
@@ -236,8 +246,7 @@
 </tbody>
 </table>
 <h3 id="1-插入排序"><a href="#1-插入排序" class="headerlink" title="1.插入排序"></a>1.插入排序</h3><ul>
-<li>思路：类似于抽牌的过程，右手一张张地抽牌，每次右手抽的牌对比左手中已经排序好的牌，放在左手相应的位置中<!-- ![example1](算法导论-第二章-算法基础/pic1.png) -->
-</li>
+<li>思路：类似于抽牌的过程，右手一张张地抽牌，每次右手抽的牌对比左手中已经排序好的牌，放在左手相应的位置中<br><img src="/2017/03/02/算法导论-第二章-算法基础/pic1.png" alt="example1"></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_insert</span><span class="params">(lista)</span>:</span></div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1</span>, len(lista)): <span class="comment"># 右手抽的牌</span></div><div class="line">      right_num = lista[i]</div><div class="line">      j = i <span class="comment">#左手边起始对比的位置</span></div><div class="line">      <span class="keyword">while</span> (j &gt; <span class="number">0</span>) <span class="keyword">and</span> (lista[j<span class="number">-1</span>] &gt; right_num): <span class="comment"># 左边比较大的时候</span></div><div class="line">          lista[j] = lista[j<span class="number">-1</span>] <span class="comment"># 坐标的数字往后移</span></div><div class="line">          j -= <span class="number">1</span></div><div class="line">      lista[j] = right_num</div><div class="line">  <span class="keyword">return</span> lista</div></pre></td></tr></table></figure>
 <h3 id="2-归并排序"><a href="#2-归并排序" class="headerlink" title="2.归并排序"></a>2.归并排序</h3><ul>
@@ -256,10 +265,23 @@
 <li>思路: 类似于冒泡排序，但是循环的时候是找出最小的数值，与循环的起始位置交换顺序</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_selection</span><span class="params">(lista)</span>:</span></div><div class="line">  length = len(lista)</div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> xrange(length - <span class="number">1</span>):</div><div class="line">    minum = i</div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> xrange(i, length):</div><div class="line">      <span class="keyword">if</span> lista[j] &lt; lista[minum]:</div><div class="line">        minum = j</div><div class="line">    lista[i] = lista[minum]</div><div class="line">  <span class="keyword">return</span> lista</div></pre></td></tr></table></figure>
-<h3 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5.快速排序"></a>5.快速排序</h3><ul>
+<h3 id="5-堆排序"><a href="#5-堆排序" class="headerlink" title="5.堆排序"></a>5.堆排序</h3><ul>
+<li>思路:<br>  1.将数组看做一个最大二叉堆<br>  2.维护最大二叉堆的性质,父节点大于子节点<br>  3.然后从根节点取出元素放到后面，重新维护最大堆的性质<br>  4.重复3步骤，直到剩下最后1个元素</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_heap</span><span class="params">(lista)</span>:</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">Father</span><span class="params">(i)</span>:</span> <span class="comment"># 父节点 i的一半向下取整 └ i/2 ┘</span></div><div class="line">    <span class="keyword">return</span> (i+<span class="number">1</span>)//<span class="number">2</span> - <span class="number">1</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">Left</span><span class="params">(i)</span>:</span> <span class="comment"># 左孩子节点</span></div><div class="line">    <span class="keyword">return</span> (i+<span class="number">1</span>)*<span class="number">2</span> - <span class="number">1</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">Right</span><span class="params">(i)</span>:</span> <span class="comment"># 右孩子节点</span></div><div class="line">    <span class="keyword">return</span> (i+<span class="number">1</span>)*<span class="number">2</span> + <span class="number">1</span> - <span class="number">1</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">max_heapify</span><span class="params">(A, i)</span>:</span> <span class="comment"># 维护最大堆的性质</span></div><div class="line">    <span class="keyword">global</span> heap_size</div><div class="line">    l = Left(i)</div><div class="line">    r = Right(i)</div><div class="line">    lastest = i</div><div class="line">    <span class="keyword">if</span> l &lt;= heap_size <span class="keyword">and</span> l &gt; A[lastest]:</div><div class="line">        lastest = l</div><div class="line">    <span class="keyword">if</span> r &lt;= heap_size <span class="keyword">and</span> r &gt; A[lastest]:</div><div class="line">        lastest = r  </div><div class="line">    <span class="keyword">if</span> lastest != i:</div><div class="line">      A[i], A[lastest] = A[lastest], A[i]</div><div class="line">      max_heapify(lastest)</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">build_max_heap</span><span class="params">(A)</span>:</span> <span class="comment"># 生成最大堆</span></div><div class="line">    <span class="keyword">global</span> heap_size</div><div class="line">    heap_size = len(A) - <span class="number">1</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(len(A)//<span class="number">2</span>, <span class="number">-1</span>, <span class="number">-1</span>):</div><div class="line">        max_heapify(A, i)</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">heap_sort</span><span class="params">(A)</span>:</span> <span class="comment">#排序</span></div><div class="line">    <span class="keyword">global</span> heap_size</div><div class="line">    build_max_heap(A)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(len(A) - <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>):</div><div class="line">        A[<span class="number">0</span>], A[i] = A[i], A[<span class="number">0</span>]</div><div class="line">        max_heapify(A, <span class="number">0</span>)</div><div class="line">  heap_sort(lista)</div><div class="line">  <span class="keyword">return</span> lista</div></pre></td></tr></table></figure>
+<h3 id="6-快速排序"><a href="#6-快速排序" class="headerlink" title="6.快速排序"></a>6.快速排序</h3><ul>
 <li>思路:<br>  1.将数组的第一个数字定为基准数flag，将数组中比flag小的放置在flag左边，比flag大的放置在右边<br>  2.对flag左边的和右边的数组重复步骤1</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_fast</span><span class="params">(lista)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sub_flag</span><span class="params">(array, start, end)</span>:</span> <span class="comment"># 步骤1</span></div><div class="line">        flag = array[start]<span class="comment">#确定flag</span></div><div class="line">        <span class="keyword">while</span> start &gt; end:</div><div class="line">            <span class="keyword">while</span> (start &gt; end) <span class="keyword">and</span> array[end] &gt; flag: <span class="comment"># 比flag大</span></div><div class="line">                end -= <span class="number">1</span> <span class="comment"># 数字位置不变，比较的位置左移一格</span></div><div class="line">            <span class="keyword">while</span> (start &gt; end) <span class="keyword">and</span> array[end] &lt; flag: <span class="comment"># 比flag小</span></div><div class="line">                array[start] = array[end] <span class="comment"># 移动到左边</span></div><div class="line">                start += <span class="number">1</span></div><div class="line">                array[end] = array[start] <span class="comment"># 将之前左边的数字右边一个未比较的数字移动到右边原来的位置</span></div><div class="line">            array[start] = flag</div><div class="line">        <span class="keyword">return</span> start <span class="comment"># 返回flag的位置</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">quick</span><span class="params">(array, start, end)</span>:</span> <span class="comment"># 步骤2</span></div><div class="line">        <span class="keyword">if</span> start &gt; end:</div><div class="line">            flag_index = sub_flag(array, start, end)</div><div class="line">            quick(array, start, flag_index)</div><div class="line">            quick(array, flag_index + <span class="number">1</span>, end)</div><div class="line">    quick(lista, <span class="number">0</span>, len(lista))</div><div class="line">    <span class="keyword">return</span> lista</div></pre></td></tr></table></figure>
+<h3 id="7-计数排序"><a href="#7-计数排序" class="headerlink" title="7.计数排序"></a>7.计数排序</h3><ul>
+<li>思路:<br>  1.假设输入数组A[0,n], 其中最大值是max(A),假设 k &gt;= max(A)<br>  2.将B[0,k]每一位赋予初始值0，然后与A中元素i比较，将B[i] = B[i] + 1<br>  3.数组B[0,k] 中的数值B[i] 就表示 A中元素i的数量<br>  4.B[i] = B[i] + B[i-1],B中元素B[i]就代表比i小的元素的数量</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_count</span><span class="params">(lista)</span>:</span></div><div class="line">  k = max(lista) + <span class="number">1</span></div><div class="line">  length = len(lista)</div><div class="line">  B = [<span class="number">0</span>] * k <span class="comment"># 临时存储</span></div><div class="line">  C = [<span class="number">0</span>] * length <span class="comment"># 输出</span></div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> lista:</div><div class="line">      B[i] = B[i] + <span class="number">1</span></div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1</span>, k):</div><div class="line">      B[i] = B[i] + B[i<span class="number">-1</span>]</div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> xrange(length - <span class="number">1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</div><div class="line">      C[B[lista[i]] = lista[i]</div><div class="line">      B[lista[i]] = B[lista[i]] - <span class="number">1</span></div><div class="line">  <span class="keyword">return</span> C</div></pre></td></tr></table></figure>
+<h3 id="8-基数排序"><a href="#8-基数排序" class="headerlink" title="8.基数排序"></a>8.基数排序</h3><ul>
+<li>思路:<br>  1.<pre><code class="python">
+</code></pre>
+</li>
+</ul>
 
                 <hr>
                 
@@ -282,7 +304,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-插入排序"><span class="toc-text">1.插入排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-归并排序"><span class="toc-text">2.归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-冒泡排序"><span class="toc-text">3.冒泡排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-选择排序"><span class="toc-text">4.选择排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-快速排序"><span class="toc-text">5.快速排序</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-插入排序"><span class="toc-text">1.插入排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-归并排序"><span class="toc-text">2.归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-冒泡排序"><span class="toc-text">3.冒泡排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-选择排序"><span class="toc-text">4.选择排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-堆排序"><span class="toc-text">5.堆排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-快速排序"><span class="toc-text">6.快速排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-计数排序"><span class="toc-text">7.计数排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-基数排序"><span class="toc-text">8.基数排序</span></a></li></ol>
                 </div>
             </div>
         </div>
