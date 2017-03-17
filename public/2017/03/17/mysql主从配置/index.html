@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="月牙天冲在 Github 上的个人博客">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="月牙天冲" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        mysql主从配置｜月牙天冲的博客
+        
+    </title>
+
+    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/03/17/mysql主从配置/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    月牙天冲
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://olch8050n.bkt.clouddn.com/bac2.jpeg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://olch8050n.bkt.clouddn.com/bac2.jpeg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>mysql主从配置</h1>
+                    
+                    <span class="meta">
+                         作者 月牙天冲
+                        <span>
+                          日期 2017-03-17
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#mysql"
+                           title="mysql">mysql</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            mysql主从配置
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="1-主服务器"><a href="#1-主服务器" class="headerlink" title="1.主服务器"></a>1.主服务器</h2><h3 id="1-1-设置好配置文件"><a href="#1-1-设置好配置文件" class="headerlink" title="1.1 设置好配置文件"></a>1.1 设置好配置文件</h3><blockquote>
+<p>cnf配置文件一般会有四个，可以根据命令 # ll /usr/share/mysql/*.cnf 查看；</p>
+<p>my-small.cnf    内存少于或等于64M，只提供很少的的数据库服务；</p>
+<p>my-medium.cnf   内存在32M–64M之间而且和其他服务一起使用，例如web；</p>
+<p>my-large.cnf    内存有512M主要提供数据库服务；</p>
+<p>my-huge.cnf     内存有1G到2G，主要提供数据库服务；</p>
+<p>my-innodb-heavy-4G.cnf 内存有4G，主要提供较大负载数据库服务（一般服务器都使用这个）；</p>
+<p>可以根据服务器配置的不同选择不同的cnf配置文件。</p>
+</blockquote>
+<p>my.cnf<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[mysqld]</div><div class="line">server-id       = 1 # 必须，id，一般取IP最后一段</div><div class="line">log-bin = mysql-bin # 必须，二进制日志文件</div><div class="line">expire_logs_days    = 10</div><div class="line">max_binlog_size   = 100M</div><div class="line">binlog_do_db       = include_database_name # 包括的库名称 多个可换行多次设置</div><div class="line">binlog_ignore_db   = include_database_name # 不包括的库名称 多个可换行多次设置</div></pre></td></tr></table></figure></p>
+<h3 id="1-2-配置好给从服务器登陆的账号-重启"><a href="#1-2-配置好给从服务器登陆的账号-重启" class="headerlink" title="1.2 配置好给从服务器登陆的账号,重启"></a>1.2 配置好给从服务器登陆的账号,重启</h3>  <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">grant replication slave on *.* to `tom`@`192.168.1.196` identified by &apos;password&apos;;</div></pre></td></tr></table></figure>
+<h3 id="1-3-查看主服务器状态"><a href="#1-3-查看主服务器状态" class="headerlink" title="1.3 查看主服务器状态"></a>1.3 查看主服务器状态</h3>  <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">mysql&gt; show master status;</div></pre></td></tr></table></figure>
+<h3 id="1-4-备份数据库-如果从服务器也为新建库，则不需要此操作"><a href="#1-4-备份数据库-如果从服务器也为新建库，则不需要此操作" class="headerlink" title="1.4 备份数据库(如果从服务器也为新建库，则不需要此操作)"></a>1.4 备份数据库(如果从服务器也为新建库，则不需要此操作)</h3><blockquote>
+<p>备份数据库的方法有很多种：如果在同一局域网可以直接复制数据库，也可以用工具直接进行数据导入。</p>
+<p>复制数据库用打包的方法：</p>
+<p>cd/data  转到存放Mysql数据库的路径下</p>
+<p>tarcvfz testcreate.tar.gz db/</p>
+<p>再从数据库中进行复制解压</p>
+<p>cd/data</p>
+<p>scp 192.168.1.61:/data/testcreate.tar.gz</p>
+<p>tar xvfz testcreate.tar.gz</p>
+</blockquote>
+<h2 id="2-从服务器"><a href="#2-从服务器" class="headerlink" title="2 从服务器"></a>2 从服务器</h2><h3 id="2-1-配置从库服务my-cnf文件"><a href="#2-1-配置从库服务my-cnf文件" class="headerlink" title="2.1.    配置从库服务my.cnf文件"></a>2.1.    配置从库服务my.cnf文件</h3><pre><code># vi etc/my.cnf 对其进行如下修改：
+
+Server-id = 2 # 这里ID改为2 因为主库为1;
+
+log-bin = mysql-bin  # 必填项，用于数据同步;
+
+master-host = 192.168.1.60 # 主库IP;
+
+master-user = test # 同步用的账户;
+
+master-password = 123456 # 同步账户密码，主库时的设置;
+
+master-port = 3306 # 同步数据库的端口号。
+</code></pre><h3 id="2-2-重启从库服务器"><a href="#2-2-重启从库服务器" class="headerlink" title="2.2    重启从库服务器"></a>2.2    重启从库服务器</h3><pre><code>#service mysqld restart
+
+如果重启失败则配置文件有问题，需重新检查配置。
+</code></pre><h3 id="2-3-调整复制过来的数据库的权限（如果有从主库复制过来的数据库）"><a href="#2-3-调整复制过来的数据库的权限（如果有从主库复制过来的数据库）" class="headerlink" title="2.3   调整复制过来的数据库的权限（如果有从主库复制过来的数据库）"></a>2.3   调整复制过来的数据库的权限（如果有从主库复制过来的数据库）</h3><pre><code>主库复制过来的数据库权限都为root权限，需要修改为mysql权限
+
+#chown–R mysql:mysql /var/lib/mysql
+
+如果从库是新建的库就不需要进行此步骤
+</code></pre><h3 id="2-4-显示从服务器状态"><a href="#2-4-显示从服务器状态" class="headerlink" title="2.4    显示从服务器状态"></a>2.4    显示从服务器状态</h3><pre><code>进行mysql服务器：
+
+mysql&gt;showslave status\G;
+查看Slave_IO_Running和Slave_SQL_Running都是yes则成功
+</code></pre>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/03/17/docker-pull被重置的问题/" data-toggle="tooltip" data-placement="top"
+                           title="docker pull被重置的问题">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-主服务器"><span class="toc-text">1.主服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-设置好配置文件"><span class="toc-text">1.1 设置好配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-配置好给从服务器登陆的账号-重启"><span class="toc-text">1.2 配置好给从服务器登陆的账号,重启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-查看主服务器状态"><span class="toc-text">1.3 查看主服务器状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-备份数据库-如果从服务器也为新建库，则不需要此操作"><span class="toc-text">1.4 备份数据库(如果从服务器也为新建库，则不需要此操作)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-从服务器"><span class="toc-text">2 从服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-配置从库服务my-cnf文件"><span class="toc-text">2.1.    配置从库服务my.cnf文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-重启从库服务器"><span class="toc-text">2.2    重启从库服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-调整复制过来的数据库的权限（如果有从主库复制过来的数据库）"><span class="toc-text">2.3   调整复制过来的数据库的权限（如果有从主库复制过来的数据库）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-显示从服务器状态"><span class="toc-text">2.4    显示从服务器状态</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#mysql"
+                           title="mysql">mysql</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 月牙天冲 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- TODO UY BEGIN -->
+<!-- <div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2125928"></script> -->
+<!-- UY END -->
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wudizhangzhi.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','undefined','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://olch8050n.bkt.clouddn.com/avatar.jpg">
+</body>
+
+</html>
