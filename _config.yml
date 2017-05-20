@@ -10,7 +10,7 @@ description: '月牙天冲在 Github 上的个人博客'
 author: 月牙天冲
 language:  zh-Hans
 timezone:  Asia/Shanghai
-header-img: //o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg
+header-img: http://olch8050n.bkt.clouddn.com/dengken.jpg
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://wudizhangzhi.github.io
@@ -79,7 +79,7 @@ cnd-url: "http://olch8050n.bkt.clouddn.com/"
 
 
 # 博文默认图片(如果不设置这一项, 博文标题的图片默认是灰色的)
-post-default-img: https://a-ssl.duitang.com/uploads/item/201507/02/20150702160837_2j5Bt.thumb.700_0.jpeg 
+post-default-img: https://a-ssl.duitang.com/uploads/item/201507/02/20150702160837_2j5Bt.thumb.700_0.jpeg
 
 
 # Sidebar settings
@@ -101,7 +101,7 @@ markdown:
 # duoshuo_username: 6388056881130112000
 # duoshuo_share: true
 
-sidebar-avatar: http://olch8050n.bkt.clouddn.com/avatar.jpg
+sidebar-avatar: http://olch8050n.bkt.clouddn.com/dengken.jpg
 #功能标签
 featured-tags: true
 featured-condition-size: 1
