@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://wudizhangzhi.github.io/tags/动漫/">
+    <link rel="canonical" href="http://wudizhangzhi.github.io/archives/page/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -152,19 +152,20 @@
 
 
 <div class="post-preview  "
-     style="background-image: url('QQ20170516-0.jpg')">
-    <a href="/2017/05/16/【SOAR】cosplay社/">
+     style="background-image: url('docker.jpg')">
+    <a href="/2017/02/17/docker-本地Registry的部署/">
         <h2 class="post-title">
-            【SOAR】cosplay社
+            docker 本地Registry的部署
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-05-16
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-02-17
         </p>
         
         <div class="post-content-preview">
             <p>
-                
-
+                1.本地Registry的部署运行下面命令获取registry镜像
+sudo docker pull registry:2.1.1 # tag版本号随意设置
+然后启动一个容器sudo docker run -d -v /opt/registry:/var/lib/registry -p 5000..
             </p>
         </div>
     </a>
@@ -179,6 +180,10 @@
 <!-- 翻页 pager -->
 
 <ul class="pager">
+    
+    <li class="previous">
+        <a href="/archives/">&larr; Newer Posts</a>
+    </li>
     
     
 </ul>
