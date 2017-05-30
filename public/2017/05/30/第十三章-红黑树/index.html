@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        常用命令(不定期更新)｜月牙天冲的博客
+        第十三章 红黑树｜月牙天冲的博客
         
     </title>
 
-    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/05/20/常用命令-不定期更新/">
+    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/05/30/第十三章-红黑树/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -145,18 +145,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>常用命令(不定期更新)</h1>
+                    <h1>第十三章 红黑树</h1>
                     
                     <span class="meta">
                          作者 月牙天冲
                         <span>
-                          日期 2017-05-20
+                          日期 2017-05-30
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#学习笔记"
-                           title="学习笔记">学习笔记</a>
+                        <a class="tag" href="/tags/#算法导论"
+                           title="算法导论">算法导论</a>
                         
                     </div>
                 </div>
@@ -165,7 +165,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            常用命令(不定期更新)
+            第十三章 红黑树
         </span>
     </div>
 </header>
@@ -176,12 +176,29 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="1-转换图片大小"><a href="#1-转换图片大小" class="headerlink" title="1.转换图片大小"></a>1.转换图片大小</h1><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">convert -resize 50% old.jpg new.jpg</div></pre></td></tr></table></figure>
-<h1 id="2-项目启动celery服务"><a href="#2-项目启动celery服务" class="headerlink" title="2.项目启动celery服务"></a>2.项目启动celery服务</h1><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">celery worker --app=taidii  --loglevel=info --logfile=celery-worker-default-out.log</div><div class="line"></div><div class="line">celery beat --app=taidii --loglevel=info</div></pre></td></tr></table></figure>
-<h1 id="3-项目修改js之前"><a href="#3-项目修改js之前" class="headerlink" title="3.项目修改js之前"></a>3.项目修改js之前</h1><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd static/js/app/modules/</div><div class="line">babel --presets react --watch reactSrc/ --out-dir reactBuild/</div></pre></td></tr></table></figure>
-<h1 id="4-ssh保持连接"><a href="#4-ssh保持连接" class="headerlink" title="4.ssh保持连接"></a>4.ssh保持连接</h1><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ssh -o TCPKeepAlive=yes -o ServerAliveInterval=300</div></pre></td></tr></table></figure>
-<h1 id="5-django-south"><a href="#5-django-south" class="headerlink" title="5.django south"></a>5.django south</h1><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">python manage.py syncdb</div><div class="line">python manage.py convert_to_south appname</div><div class="line">p</div><div class="line">python manage.py schemagration appname --initial</div><div class="line">python manage.py schemagration appname --auto</div><div class="line">python manage.py schemagration appname --fake 00001.xxx</div><div class="line">python manage.py migrate appname</div></pre></td></tr></table></figure>
-
+                <h1 id="十三章-红黑树-red-black-tree"><a href="#十三章-红黑树-red-black-tree" class="headerlink" title="十三章 红黑树(red-black tree)"></a>十三章 红黑树(red-black tree)</h1><h2 id="13-1-红黑树的性质"><a href="#13-1-红黑树的性质" class="headerlink" title="13.1 红黑树的性质"></a>13.1 红黑树的性质</h2><p>红黑树是一个二叉搜索树，增加了一个存储位保存结点的颜色， black 或者 red<br>树中的结点包含5个属性: color, key, left, right, p</p>
+<ul>
+<li>1.每个结点或是红色， 或是黑色</li>
+<li>2.根结点是黑色</li>
+<li>3.每个叶结点(nil)都是黑色的</li>
+<li>4.如果一个结点是红色， 则它的2个子结点都是黑色</li>
+<li>5.对于每个结点， 到其所有后代叶结点的简单路径上，均包含相同数量的黑色结点</li>
+</ul>
+<blockquote>
+<p>黑高: 从某个结点x出发，到达一个叶结点的任意一条简单路径上的黑色结点的个数称为该结点的黑高</p>
+<p>一个有n个内部结点的红黑树高度最多为 2log(n + 1)<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">证明:</div><div class="line">  假设红黑树的高为h，由性质4可知：从根结点到叶结点一条简单路径上至少有一半是黑色的。即：bh(x) &gt;= h/2</div><div class="line">  由性质4可知, 结点数量 n &gt;= 2**bh(x) - 1</div><div class="line">  log(n+1) &gt;= bh(x)</div><div class="line">  log(n+1) &gt;= h/2</div><div class="line">  所以：h &lt;= 2log(n+1)</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="13-2-旋转-rotation"><a href="#13-2-旋转-rotation" class="headerlink" title="13.2 旋转(rotation)"></a>13.2 旋转(rotation)</h2><p><img src="/2017/05/30/第十三章-红黑树/13_2_1.png" alt="rotation"></p>
+<ul>
+<li><p>左旋(left-rotation)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">def left_rotation(T, x):</div><div class="line">    y = x.right</div><div class="line">    x.right = y.left</div><div class="line">    if y.left != T.nil:</div><div class="line">        y.left.p = x</div><div class="line">    if x.p == T.nil:</div><div class="line">        T.root = y</div><div class="line">    elif x == x.p.left:</div><div class="line">        x.p.left = y</div><div class="line">    else:</div><div class="line">        x.p.right = y</div><div class="line">    x.p = y</div><div class="line">    y.left = x</div></pre></td></tr></table></figure>
+</li>
+<li><p>右旋(right-rotation)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">def right_rotation(T, x):</div><div class="line">    y = x.p</div><div class="line">    y.left = x.right</div><div class="line">    if x.right != nil:</div><div class="line">        x.right.p = y</div><div class="line">    if y.p == T.nil:</div><div class="line">        T.root = x</div><div class="line">    elif y.p.left == y:</div><div class="line">        y.p.left = x</div><div class="line">    else:</div><div class="line">        y.p.right = x</div><div class="line">    x.right = y</div><div class="line">    y.p = x</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="13-3-插入"><a href="#13-3-插入" class="headerlink" title="13.3 插入"></a>13.3 插入</h2><p>RB-INSERT插入结点后后需要一个辅助程序RB-INSERT-FIXUP对结点重新着色并旋转<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">def RB_INSERT(T, z):</div><div class="line">    pass</div></pre></td></tr></table></figure></p>
+<h2 id="13-4-删除"><a href="#13-4-删除" class="headerlink" title="13.4 删除"></a>13.4 删除</h2>
                 <hr>
 
                 <!--TODO网易云跟帖 -->
@@ -205,15 +222,10 @@
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/05/26/mysql增量备份和恢复/" data-toggle="tooltip" data-placement="top"
-                           title="mysql增量备份和恢复">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/05/16/【SOAR】cosplay社/" data-toggle="tooltip" data-placement="top"
-                           title="【SOAR】cosplay社">Next Post &rarr;</a>
+                        <a href="/2017/05/26/my-promise/" data-toggle="tooltip" data-placement="top"
+                           title="my promise">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -226,7 +238,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-转换图片大小"><span class="toc-text">1.转换图片大小</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-项目启动celery服务"><span class="toc-text">2.项目启动celery服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-项目修改js之前"><span class="toc-text">3.项目修改js之前</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-ssh保持连接"><span class="toc-text">4.ssh保持连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-django-south"><span class="toc-text">5.django south</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#十三章-红黑树-red-black-tree"><span class="toc-text">十三章 红黑树(red-black tree)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#13-1-红黑树的性质"><span class="toc-text">13.1 红黑树的性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-2-旋转-rotation"><span class="toc-text">13.2 旋转(rotation)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-3-插入"><span class="toc-text">13.3 插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-4-删除"><span class="toc-text">13.4 删除</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -248,8 +260,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#学习笔记"
-                           title="学习笔记">学习笔记</a>
+                        <a class="tag" href="/tags/#算法导论"
+                           title="算法导论">算法导论</a>
                         
                     </div>
                 </section>
