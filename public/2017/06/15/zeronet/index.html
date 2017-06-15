@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="月牙天冲在 Github 上的个人博客">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="月牙天冲" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        zeronet｜月牙天冲的博客
+        
+    </title>
+
+    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/06/15/zeronet/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://olch8050n.bkt.clouddn.com/dengken.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    月牙天冲
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://olch8050n.bkt.clouddn.com/backgroup.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://olch8050n.bkt.clouddn.com/backgroup.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>zeronet</h1>
+                    
+                    <span class="meta">
+                         作者 月牙天冲
+                        <span>
+                          日期 2017-06-15
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            zeronet
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="什么是ZeroNet"><a href="#什么是ZeroNet" class="headerlink" title="什么是ZeroNet?"></a>什么是ZeroNet?</h1><p>ZeroNet是一个去中心化的类似于Internet的网络，由匈牙利的开发者使用Python制作，完全开源。网站由特殊的”ZeroNet URL”可以被使用一般的浏览器通过ZeroNet程序浏览，就像访问本地主机一样。ZeroNet默认并不匿名，但是用户可以通过内置的Tor功能进行匿名化。ZeroNet使用Bitcoin加密算法及BitTorrent网络。<br>防DMCA Take down<br>由于ZeroNet去中心化的原因,国外有人制作了一个ZeroNet版本的海盗湾，,这个网站可让版权所有者头疼啦…一般的网站服务器都有IP地址,不抗投诉的ISP收到了向IP WHOIS滥用信箱发送的DMCA投诉信的话,你就要和你的网站说再见了..(俗称 DMCA Take down),可用了ZeroNet后,并没有一台服务器是真实的服务器,任何访客都有可能成为服务器,还有些访客使用了Tor,更找不到真正的物理地址。<br>功能<br>实时站点更新<br>支持 Namecoin 的 .bit 域名<br>安装方便: 只需解压并运行<br>一键克隆存在的站点<br>无需密码、基于 BIP32 的认证：用与比特币钱包相同的加密方法用来保护你的账户 你的账户被使用和比特币钱包相同的加密方法<br>内建 SQL 服务器和 P2P 数据同步: 让开发更简单并提升加载速度<br>匿名性: 完整的 Tor 网络支持，支持通过 .onion 隐藏服务相互连接而不是通过IPv4地址连接<br>TLS 加密连接<br>自动打开 uPnP 端口<br>插件和多用户 (开放式代理) 支持<br>全平台兼容<br>原理<br>在你运行zeronet.py后你将可以通过<a href="http://127.0.0.1:43110/{zeronet_address}" target="_blank" rel="external">http://127.0.0.1:43110/{zeronet_address}</a> (比如.<a href="http://127.0.0.1:43110/1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D)。访问" target="_blank" rel="external">http://127.0.0.1:43110/1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D)。访问</a> zeronet 中的站点。<br>在你浏览 zeronet 站点时，客户端会尝试通过 BitTorrent 网络来寻找可用的节点，从而下载需要的文件 (html, css, js…)<br>你将会储存每一个浏览过的站点<br>每个站点都包含一个名为 content.json ，它储存了其他所有文件的 sha512 hash 值 和一个通过站点私钥建立的签名<br>如果站点的所有者 (拥有私钥的那个人) 修改了站点, 并且他/她签名了新的 content.json 然后推送至其他节点， 那么所有节点将会在验证 content.json 的真实性 (使用签名)后, 下载修改后的文件并推送至其他节点。<br>有关于 ZeroNet 加密, 站点更新, 多用户站点的幻灯片 »<br>常见问题 »<br>ZeroNet开发者文档 »</p>
+<p>好了，说点有用的：<br>1.可以建自己的网站，你基本上不用做什么。<br>2.基于p2p原理，你只要建好并有人浏览过，即使你自己关机，你的网站依然在全球存在。别人想关你站，没门。<br>3.基于p2p原理，支付内网穿透，也就是说你在内网也没关系，手机也没问题。<br>4.基于比特币原理，账号很安全，谁也不知道你是谁，谁也盗不去。<br>5.不需要域名，任何人访问都使用<a href="http://127.0.0.1:43110/字符串" target="_blank" rel="external">http://127.0.0.1:43110/字符串</a> 来访问。<br>6.不用gg fb和tt你就能浏览全世界<br>项目地址：该项目的官方网址为: <a href="https://github.com/hellozeronet/zeronet" target="_blank" rel="external">https://github.com/hellozeronet/zeronet</a><br>下载地址：<a href="https://github.com/HelloZeroNet/ZeroBundle/raw/master/dist/ZeroBundle-win.zip" target="_blank" rel="external">https://github.com/HelloZeroNet/ZeroBundle/raw/master/dist/ZeroBundle-win.zip</a><br>相关说明：<a href="http://www.wanbizu.com/news/201603086775.html" target="_blank" rel="external">http://www.wanbizu.com/news/201603086775.html</a><br>安装方法？其实很简单，到官网zeronet.io下载，解压，双击运行，等进度走完就会自动打开默认浏览器，你就可以访问了。一般新系统都能正常运行，老系统有两种情况：如果自动打开浏览器后发现页面显示不正常，说明你的IE不支持，用chrome或者firefox浏览器来打开127.0.0.1:43110就行了。XP用户如果运行不了，那就需要下载安装微软的VC2008 Redistributable Package运行环境，才1MB多，搜一下就有了。<br>安装：解压后运行zeronet.cmd</p>
+<p>安装后你唯一要做的，是注册一个id。<br><a href="http://127.0.0.1:43110/zeroid.bit" target="_blank" rel="external">http://127.0.0.1:43110/zeroid.bit</a></p>
+<h1 id="如何加入-？"><a href="#如何加入-？" class="headerlink" title="如何加入 ？"></a>如何加入 ？</h1><p>下载 ZeroBundle 文件包:<br>Microsoft Windows<br>Apple OS X<br>Linux 64bit<br>Linux 32bit<br>解压缩<br>运行 ZeroNet.cmd (win), ZeroNet(.app) (osx), ZeroNet.sh (linux)<br>如果你在 OS X 上遇到了 “classic environment no longer supported” 错误，请打开一个终端然后把 ZeroNet.app 拖进去<br>在你打开时他将会自动下载最新版本的 ZeroNet 。</p>
+<h2 id="Linux-命令行"><a href="#Linux-命令行" class="headerlink" title="Linux 命令行"></a>Linux 命令行</h2><p>wget <a href="https://github.com/HelloZeroNet/ZeroBundle/raw/master/dist/ZeroBundle-linux64.tar.gz" target="_blank" rel="external">https://github.com/HelloZeroNet/ZeroBundle/raw/master/dist/ZeroBundle-linux64.tar.gz</a><br>tar xvpfz ZeroBundle-linux64.tar.gz<br>cd ZeroBundle<br>执行 ./ZeroNet.sh 来启动<br>在你打开时他将会自动下载最新版本的 ZeroNet 。<br>在 Debian Linux 中手动安装<br>sudo apt-get update<br>sudo apt-get install msgpack-python python-gevent<br>wget <a href="https://github.com/HelloZeroNet/ZeroNet/archive/master.tar.gz" target="_blank" rel="external">https://github.com/HelloZeroNet/ZeroNet/archive/master.tar.gz</a><br>tar xvpfz master.tar.gz<br>cd ZeroNet-master<br>执行 python zeronet.py 来启动<br>在你的浏览器中打开 <a href="http://127.0.0.1:43110/" target="_blank" rel="external">http://127.0.0.1:43110/</a></p>
+<h2 id="Vagrant"><a href="#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</h2><p>vagrant up<br>通过 vagrant ssh 连接到 VM<br>cd /vagrant<br>运行 python zeronet.py –ui_ip 0.0.0.0<br>在你的浏览器中打开 <a href="http://127.0.0.1:43110/" target="_blank" rel="external">http://127.0.0.1:43110/</a></p>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">docker run -d -v &lt;local_data_folder&gt;:/root/data -p 15441:15441 -p 43110:43110 nofish/zeronet</div><div class="line"># 这个 Docker 镜像包含了 Tor ，但默认是禁用的，因为一些托管商不允许你在他们的服务器上运行 Tor。如果你希望启用它， 设置 ENABLE_TOR 环境变量为 true (默认: false). E.g.:</div><div class="line">Docker run -d -e &quot;ENABLE_TOR=true&quot; -v &lt;local_data_folder&gt;:/root/data -p 15441:15441 -p 43110:43110 nofish/zeronet</div></pre></td></tr></table></figure>
+<p>在你的浏览器中打开 <a href="http://127.0.0.1:43110/" target="_blank" rel="external">http://127.0.0.1:43110/</a></p>
+<h2 id="Virtualenv"><a href="#Virtualenv" class="headerlink" title="Virtualenv"></a>Virtualenv</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">virtualenv env</div><div class="line">source env/bin/activate</div><div class="line">pip install msgpack-python gevent</div><div class="line">python zeronet.py</div></pre></td></tr></table></figure>
+<p>在你的浏览器中打开 <a href="http://127.0.0.1:43110/" target="_blank" rel="external">http://127.0.0.1:43110/</a><br>现有限制<br>没有类似于 BitTorrent 的文件拆分来支持大文件<br>没有比 BitTorrent 更好的匿名性 (已添加内置的完整 Tor 支持)<br>传输文件时没有压缩和加密 (已添加 TLS 支持)<br>不支持私有站点</p>
+<h1 id="如何创建一个-ZeroNet-站点"><a href="#如何创建一个-ZeroNet-站点" class="headerlink" title="如何创建一个 ZeroNet 站点?"></a>如何创建一个 ZeroNet 站点?</h1><p>如果 zeronet 在运行，把它关掉 执行：<br>$ zeronet.py siteCreate<br>…</p>
+<ul>
+<li>Site private key: 23DKQpzxhbVBrAtvLEc2uvk7DZweh4qL3fn3jpM3LgHDczMK2TtYUq</li>
+<li>Site address: 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2<br>…</li>
+<li>Site created!<br>$ zeronet.py<br>…<br>你已经完成了！ 现在任何人都可以通过 <a href="http://localhost:43110/13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2" target="_blank" rel="external">http://localhost:43110/13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2</a> 来访问你的站点<br>下一步: ZeroNet 开发者文档<br>我要如何修改 ZeroNet 站点?<br>修改位于 data/13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2 的目录. 在你改好之后:<br>$ zeronet.py siteSign 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2</li>
+<li>Signing site: 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2…<br>Private key (input hidden):<br>输入你在创建站点时获得的私钥<br>$ zeronet.py sitePublish 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2<br>…<br>Site:13DNDk..bhC2 Publishing to 3/10 peers…<br>Site:13DNDk..bhC2 Successfuly published to 3 peers</li>
+<li>Serving files….<br>就是这样! 你现在已经成功的签名并推送了你的更改。<br>帮助这个项目<br>Bitcoin: 1QDhxQ6PraUZa21ET5fYUCPgdrwBomnFgX<br>Paypal: <a href="https://zeronet.readthedocs.org/en/latest/help_zeronet/donate/" target="_blank" rel="external">https://zeronet.readthedocs.org/en/latest/help_zeronet/donate/</a><br>Gratipay: <a href="https://gratipay.com/zeronet/" target="_blank" rel="external">https://gratipay.com/zeronet/</a><br>赞助商<br>在 OSX/Safari 下 BrowserStack.com 带来更好的兼容性<br>感谢!<br>更多信息, 帮助, 变更记录和 zeronet 站点: <a href="https://www.reddit.com/r/zeronet/" target="_blank" rel="external">https://www.reddit.com/r/zeronet/</a><br>在: #zeronet @ FreeNode 和我们聊天，或者使用 gitter<br>这里是一个 gitter 上的中文聊天室<br>Email: hello@noloop.me<h1 id="福利"><a href="#福利" class="headerlink" title="福利"></a>福利</h1>海盗湾全球种子站：<a href="http://127.0.0.1:43110/1PLAYgDQboKojowD3kwdb3CtWmWaokXvfp/" target="_blank" rel="external">http://127.0.0.1:43110/1PLAYgDQboKojowD3kwdb3CtWmWaokXvfp/</a><br>MSDN资源区：<a href="http://127.0.0.1:43110/1AJB5rtjfB9imjDGVk5vtRtZp3zgYizbpG/" target="_blank" rel="external">http://127.0.0.1:43110/1AJB5rtjfB9imjDGVk5vtRtZp3zgYizbpG/</a><br>Kindle电子书：<a href="http://127.0.0.1:43110/1KHCBG6dmbKXTZNenfwhWZ5x3oDyYyHSD4" target="_blank" rel="external">http://127.0.0.1:43110/1KHCBG6dmbKXTZNenfwhWZ5x3oDyYyHSD4</a><br>导航：<a href="http://127.0.0.1:43110/1NzWeweqJ32aRVdM5UzFnYCszuvG5xV3vS" target="_blank" rel="external">http://127.0.0.1:43110/1NzWeweqJ32aRVdM5UzFnYCszuvG5xV3vS</a></li>
+</ul>
+<p>ZeroNet站点集合 &amp; 搜索引擎<br>站点集合<br><a href="http://127.0.0.1:43110/138R53t3ZW7KDfSfxVpWUsMXgwUnsDNXLP/?Page:list-of-zites" target="_blank" rel="external">http://127.0.0.1:43110/138R53t3ZW7KDfSfxVpWUsMXgwUnsDNXLP/?Page:list-of-zites</a><br>( 中文翻译在这里 )<br><a href="http://127.0.0.1:43110/zaphods.bit/RM.html" target="_blank" rel="external">http://127.0.0.1:43110/zaphods.bit/RM.html</a><br><a href="http://127.0.0.1:43110/0list.bit/" target="_blank" rel="external">http://127.0.0.1:43110/0list.bit/</a><br><a href="http://127.0.0.1:43110/1Dt7FR5aNLkqAjmosWh8cMWzJu633GYN6u/" target="_blank" rel="external">http://127.0.0.1:43110/1Dt7FR5aNLkqAjmosWh8cMWzJu633GYN6u/</a><br>搜索引擎<br><a href="http://127.0.0.1:43110/kaffiene.bit" target="_blank" rel="external">http://127.0.0.1:43110/kaffiene.bit</a><br><a href="http://127.0.0.1:43110/zerosearch.bit/" target="_blank" rel="external">http://127.0.0.1:43110/zerosearch.bit/</a><br><a href="http://127.0.0.1:43110/zerofind.bit" target="_blank" rel="external">http://127.0.0.1:43110/zerofind.bit</a><br>公用开放ZeroNet代{过}{滤}理集合（注意，这些代{过}{滤}理不能确保你的帐号安全）<br><a href="http://127.0.0.1:43110/ZeroProxies.bit" target="_blank" rel="external">http://127.0.0.1:43110/ZeroProxies.bit</a><br>聊天室集合<br><a href="http://127.0.0.1:43110/zerochatrooms.bit" target="_blank" rel="external">http://127.0.0.1:43110/zerochatrooms.bit</a><br>博客集合<br><a href="http://127.0.0.1:43110/zeroblogs.bit" target="_blank" rel="external">http://127.0.0.1:43110/zeroblogs.bit</a><br>ZeroNet官方帮助集合<br><a href="http://127.0.0.1:43110/ZeroSupport.bit" target="_blank" rel="external">http://127.0.0.1:43110/ZeroSupport.bit</a></p>
+
+                <hr>
+
+                <!--TODO网易云跟帖 -->
+                <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+                <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+                <script>
+                var cloudTieConfig = {
+                    url: document.location.href, 
+                      sourceId: "",
+                        productKey: "8f98b1180b3c4af9aea35f47aa387215",
+                          target: "cloud-tie-wrapper"
+                };
+                var yunManualLoad = true;
+                Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+                </script>
+                <!--end-->
+
+
+
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/05/30/第十三章-红黑树/" data-toggle="tooltip" data-placement="top"
+                           title="第十三章 红黑树">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是ZeroNet"><span class="toc-text">什么是ZeroNet?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何加入-？"><span class="toc-text">如何加入 ？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-命令行"><span class="toc-text">Linux 命令行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vagrant"><span class="toc-text">Vagrant</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker"><span class="toc-text">Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Virtualenv"><span class="toc-text">Virtualenv</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何创建一个-ZeroNet-站点"><span class="toc-text">如何创建一个 ZeroNet 站点?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#福利"><span class="toc-text">福利</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 月牙天冲 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- TODO UY BEGIN -->
+<!-- <div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2125928"></script> -->
+<!-- UY END -->
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wudizhangzhi.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','undefined','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://olch8050n.bkt.clouddn.com/dengken.jpg">
+</body>
+
+</html>
