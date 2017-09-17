@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://wudizhangzhi.github.io/tags/docker/">
+    <link rel="canonical" href="http://wudizhangzhi.github.io/tags/Convolutional-Neural-Network/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -153,85 +153,21 @@
 
 <div class="post-preview "
      style="background-image: url('')">
-    <a href="/2017/03/17/docker-pull被重置的问题/">
+    <a href="/2017/09/17/CIFAR-10/">
         <h2 class="post-title">
-            docker pull被重置的问题
+            CIFAR-10
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-17
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-09-17
         </p>
         
         <div class="post-content-preview">
             <p>
-                例如：
-$ docker pull ubuntu:16.04Trying to pull repository docker.io/library/ubuntu ...Get https://registry-1.docker.io/v2/library/ubuntu/manifests/sha..
-            </p>
-        </div>
-    </a>
+                CIFAR-101.about CIFAR-10   用于训练分类的数据库，一共10种分类。   地址：http://www.cs.toronto.edu/~kriz/cifar.html
+2.模型  
+  如图所示，当前使用的结构为  (C + MP)  2 + F3 
 
-</div>
-
-<hr>
-
-
-
-<div class="post-preview  "
-     style="background-image: url('http://images2015.cnblogs.com/blog/1003956/201609/1003956-20160929094610156-2054520507.png')">
-    <a href="/2017/02/17/Dockerfile的创建/">
-        <h2 class="post-title">
-            Dockerfile的创建
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-02-17
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                
-FROM 
-
-指定容器基于哪个基础镜像创建
-
-MAINTAINER 
-
-设置镜像的作者
-
-RUN 
-
-在容器中运行的命令
-
-ADD  
-
-复制文件指令, destination是容器内的路径。source可以是URL或者是启动配置上下文中的一个文件
-
-CMD
-
-提供了容器默认的执行命令。 Do..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview  "
-     style="background-image: url('docker.jpg')">
-    <a href="/2017/02/17/docker-本地Registry的部署/">
-        <h2 class="post-title">
-            docker 本地Registry的部署
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-02-17
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                1.本地Registry的部署运行下面命令获取registry镜像
-sudo docker pull registry:2.1.1 # tag版本号随意设置
-然后启动一个容器sudo docker run -d -v /opt/registry:/var/lib/registry -p 5000..
+(C: convol..
             </p>
         </div>
     </a>
