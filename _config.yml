@@ -80,6 +80,8 @@ cnd-url: "http://olch8050n.bkt.clouddn.com/"
 
 # 博文默认图片(如果不设置这一项, 博文标题的图片默认是灰色的)
 post-default-img: http://olch8050n.bkt.clouddn.com/backgroup.jpg
+post-default-img-mobile: http://olch8050n.bkt.clouddn.com/backgroup.jpg
+
 
 
 # Sidebar settings
