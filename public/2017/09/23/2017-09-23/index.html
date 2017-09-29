@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        CIFAR-10｜月牙天冲的博客
+        2017-09-23｜月牙天冲的博客
         
     </title>
 
-    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/09/17/CIFAR-10/">
+    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/09/23/2017-09-23/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -145,12 +145,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>CIFAR-10</h1>
+                    <h1>2017-09-23</h1>
                     
                     <span class="meta">
                          作者 月牙天冲
                         <span>
-                          日期 2017-09-17
+                          日期 2017-09-23
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -161,9 +161,6 @@
                         <a class="tag" href="/tags/#学习笔记"
                            title="学习笔记">学习笔记</a>
                         
-                        <a class="tag" href="/tags/#Convolutional Neural Network"
-                           title="Convolutional Neural Network">Convolutional Neural Network</a>
-                        
                     </div>
                 </div>
             </div>
@@ -171,7 +168,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            CIFAR-10
+            2017-09-23
         </span>
     </div>
 </header>
@@ -182,17 +179,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="CIFAR-10"><a href="#CIFAR-10" class="headerlink" title="CIFAR-10"></a>CIFAR-10</h1><h2 id="1-about-CIFAR-10"><a href="#1-about-CIFAR-10" class="headerlink" title="1.about CIFAR-10"></a>1.about CIFAR-10</h2><p>   用于训练分类的数据库，一共10种分类。<br>   地址：<a href="http://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="external">http://www.cs.toronto.edu/~kriz/cifar.html</a></p>
-<h2 id="2-模型"><a href="#2-模型" class="headerlink" title="2.模型"></a>2.模型</h2><p>  <img src="/2017/09/17/CIFAR-10/graph.png" alt="CIFAR-10"></p>
-<p>  如图所示，当前使用的结构为<br><br>  (C + MP) <em> 2 + F</em>3 <br></p>
-<blockquote>
-<p>(C: convolutional卷积层, MP: maxpooling, F: full connect)</p>
-</blockquote>
-<h2 id="3-结果"><a href="#3-结果" class="headerlink" title="3.结果"></a>3.结果</h2><ul>
-<li>2017-09-17 Accuracy : 62% 用时4h</li>
-<li>To be continued</li>
-</ul>
-
+                <h1 id="方差，协方差，协方差矩阵-去中心化-whiting-dewhiting"><a href="#方差，协方差，协方差矩阵-去中心化-whiting-dewhiting" class="headerlink" title="方差，协方差，协方差矩阵, 去中心化, whiting, dewhiting"></a>方差，协方差，协方差矩阵, 去中心化, whiting, dewhiting</h1><p>参考:<a href="http://blog.csdn.net/kuang_liu/article/details/16369475" target="_blank" rel="external">http://blog.csdn.net/kuang_liu/article/details/16369475</a><br>    <a href="http://blog.csdn.net/beechina/article/details/51074750" target="_blank" rel="external">http://blog.csdn.net/beechina/article/details/51074750</a></p>
+<p><img src="/2017/09/23/2017-09-23/1-1.png" alt="1-1"></p>
+<h2 id="平均值"><a href="#平均值" class="headerlink" title="平均值"></a>平均值</h2><p>  描述样本的中点</p>
+<h2 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h2><p>  描述样本的集中程度，样本集合各个样本点到中点的距离的平均值得平方</p>
+<h2 id="协方差-convariance"><a href="#协方差-convariance" class="headerlink" title="协方差(convariance)"></a>协方差(convariance)</h2><p>  <img src="/2017/09/23/2017-09-23/1-2.png" alt="1-2"><br>  各个维度的参数之间的相关性. 正：正相关，负：负相关，0：相对独立</p>
+<h2 id="协方差矩阵-convariance-matrix"><a href="#协方差矩阵-convariance-matrix" class="headerlink" title="协方差矩阵(convariance matrix)"></a>协方差矩阵(convariance matrix)</h2><p>  多维度的协方差</p>
+<p>  计算方法:</p>
+<pre><code>* 1.各个维度去中心化，即减去各维度的平均值,使各个维度的平均值都为0, 得到矩阵 X
+* 2. Cov = X * X.T / (m - 1)
+</code></pre><h1 id="restricted-Boltzmann-machine-RBM"><a href="#restricted-Boltzmann-machine-RBM" class="headerlink" title="restricted Boltzmann machine, RBM"></a>restricted Boltzmann machine, RBM</h1><h2 id="配分函数-条件独立"><a href="#配分函数-条件独立" class="headerlink" title="配分函数, 条件独立"></a>配分函数, 条件独立</h2><h2 id="对比分歧（contrastive-divergence，CD）算法"><a href="#对比分歧（contrastive-divergence，CD）算法" class="headerlink" title="对比分歧（contrastive divergence，CD）算法"></a>对比分歧（contrastive divergence，CD）算法</h2><h1 id="Deep-belief-network"><a href="#Deep-belief-network" class="headerlink" title="Deep belief network"></a>Deep belief network</h1>
                 <hr>
 
                 <!--TODO网易云跟帖 -->
@@ -216,15 +212,10 @@
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/09/23/2017-09-23/" data-toggle="tooltip" data-placement="top"
-                           title="2017-09-23">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/09/15/Reinforcement-Learning/" data-toggle="tooltip" data-placement="top"
-                           title="Reinforcement Learning">Next Post &rarr;</a>
+                        <a href="/2017/09/17/CIFAR-10/" data-toggle="tooltip" data-placement="top"
+                           title="CIFAR-10">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -237,7 +228,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CIFAR-10"><span class="toc-text">CIFAR-10</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-about-CIFAR-10"><span class="toc-text">1.about CIFAR-10</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-模型"><span class="toc-text">2.模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-结果"><span class="toc-text">3.结果</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#方差，协方差，协方差矩阵-去中心化-whiting-dewhiting"><span class="toc-text">方差，协方差，协方差矩阵, 去中心化, whiting, dewhiting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#平均值"><span class="toc-text">平均值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方差"><span class="toc-text">方差</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协方差-convariance"><span class="toc-text">协方差(convariance)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协方差矩阵-convariance-matrix"><span class="toc-text">协方差矩阵(convariance matrix)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#restricted-Boltzmann-machine-RBM"><span class="toc-text">restricted Boltzmann machine, RBM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配分函数-条件独立"><span class="toc-text">配分函数, 条件独立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对比分歧（contrastive-divergence，CD）算法"><span class="toc-text">对比分歧（contrastive divergence，CD）算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Deep-belief-network"><span class="toc-text">Deep belief network</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -264,9 +255,6 @@
                         
                         <a class="tag" href="/tags/#学习笔记"
                            title="学习笔记">学习笔记</a>
-                        
-                        <a class="tag" href="/tags/#Convolutional Neural Network"
-                           title="Convolutional Neural Network">Convolutional Neural Network</a>
                         
                     </div>
                 </section>
