@@ -17,7 +17,7 @@ tags:
 
 
 # 一些python的练习
-##1. Add Digits
+## 1. Add Digits
 ```
 '''
  Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
@@ -34,8 +34,26 @@ class Solution(object):
     def addDigits(self, num):
       pass
 ```
+### My solution
+```
+class Solution(object):
+    def addDigits(self, num):
+      if num==0:
+        return 0
+      return num % 9 if num % 9 !=0 else 9
 
-##2. array partition i
+    def addDigits(self, num):
+      if num==0:
+        return 0
+      return (num - 1) % 9 + 1
+      
+    # 迭代
+    def addDigits(self, num):
+      return num if num < 10 else self.addDigits(reduce(lambad x,y: int(x) + int(y), list(str(num))))
+```
+
+
+## 2. array partition i
 ```
 '''
  Given an array of 2n integers, your task is to group these integers
@@ -62,4 +80,109 @@ class Solution(object):
         :rtype: int
         """
         pass
+```
+### My solution
+```
+class Solution(object):
+def arrayPairSum(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    return sum(sorted(nums)[::2])
+```
+
+
+## 3. detect capital
+```
+'''
+ Given a word, you need to judge whether the usage of capitals in it is right or not.
+
+We define the usage of capitals in a word to be right when one of the following cases holds:
+
+    All letters in this word are capitals, like "USA".
+    All letters in this word are not capitals, like "leetcode".
+    Only the first letter in this word is capital if it has more than one letter, like "Google".
+
+Otherwise, we define that this word doesn't use capitals in a right way.
+
+Example 1:
+
+Input: "USA"
+Output: True
+
+Example 2:
+
+Input: "FlaG"
+Output: False
+
+
+'''
+
+class Solution(object):
+    def detectCapitalUse(self, word):
+        """
+        :type word: str
+        :rtype: bool
+        """
+```
+
+
+## 4. distribute candies
+```
+"""
+Given an integer array with even length, where different
+numbers in this array represent different kinds of candies.
+Each number means one candy of the corresponding kind.
+You need to distribute these candies equally in number to
+brother and sister. Return the maximum number of kinds of
+candies the sister could gain.
+
+Example 1:
+Input: candies = [1,1,2,2,3,3]
+Output: 3
+Explanation:
+There are three different kinds of candies (1, 2 and 3),
+ and two candies for each kind.
+Optimal distribution: The sister has candies [1,2,3] and
+the brother has candies [1,2,3], too.
+The sister has three different kinds of candies.
+Example 2:
+Input: candies = [1,1,2,3]
+Output: 2
+Explanation: For example, the sister has candies [2,3] and
+the brother has candies [1,1].
+The sister has two different kinds of candies, the brother
+has only one kind of candies.
+Note:
+
+The length of the given array is in range [2, 10,000], and
+ will be even.
+The number in given array is in range [-100,000, 100,000].
+
+move-zeroes.py
+# -*- coding:utf8 -*-
+"""
+Given an integer array with even length, where different
+numbers in this array represent different kinds of candies.
+Each number means one candy of the corresponding kind.
+You need to distribute these candies equally in number to
+brother and sister. Return the maximum number of kinds of
+candies the sister could gain.
+
+Example 1:
+Input: candies = [1,1,2,2,3,3]
+Output: 3
+Explanation:
+There are three different kinds of candies (1, 2 and 3),
+ and two candies for each kind.
+"distribute-candies.py" 47L, 1348C
+
+
+class Solution(object):
+    def distributeCandies(self, candies):
+        """
+        :type candies: List[int]
+        :rtype: int
+        """
 ```
