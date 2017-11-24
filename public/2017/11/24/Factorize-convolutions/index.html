@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        月牙天冲的博客
+        Factorize convolutions｜月牙天冲的博客
         
     </title>
 
-    <link rel="canonical" href="http://wudizhangzhi.github.io/tags/算法导论/">
+    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/11/24/Factorize-convolutions/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -124,222 +124,157 @@
 
 <!-- Main Content -->
 
+<!--only post-->
 
-<!-- Page Header -->
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
-    <div class="row">
-        <header class="intro-header">
-            <div class="container">
-                <div class="site-heading text-center">
-                    <div class="about-me">
-                        <!--移动端头部显示-->
-                        <img src="http://olch8050n.bkt.clouddn.com/dengken.jpg"/>
-                        <h5><a href="/about/">月牙天冲</a></h5>
-                        <p>月牙天冲在 Github 上的个人博客</p>
+
+<img class="wechat-title-img"
+     src="http://olch8050n.bkt.clouddn.com/backgroup.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://olch8050n.bkt.clouddn.com/backgroup.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Factorize convolutions</h1>
+                    
+                    <span class="meta">
+                         作者 月牙天冲
+                        <span>
+                          日期 2017-11-24
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#机器学习"
+                           title="机器学习">机器学习</a>
+                        
+                        <a class="tag" href="/tags/#神经网络"
+                           title="神经网络">神经网络</a>
+                        
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
     </div>
-</div>
-<!-- Main Content -->
-<div class="container custom-haojen-container">
-    <!-- Post Container -->
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-            <!-- Main Content -->
+    <div class="post-title-haojen">
+        <span>
+            Factorize convolutions
+        </span>
+    </div>
+</header>
 
-
-
-<div class="post-preview "
-     style="background-image: url('http://olch8050n.bkt.clouddn.com/backgroup.jpg')">
-    <a href="/2017/05/30/第十三章-红黑树/">
-        <h2 class="post-title">
-            第十三章 红黑树
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-05-30
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                十三章 红黑树(red-black tree)13.1 红黑树的性质红黑树是一个二叉搜索树，增加了一个存储位保存结点的颜色， black 或者 red树中的结点包含5个属性: color, key, left, right, p
-
-1.每个结点或是红色， 或是黑色
-2.根结点是黑色
-3.每个叶结..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://olch8050n.bkt.clouddn.com/backgroup.jpg')">
-    <a href="/2017/03/02/算法导论-第二章-算法基础/">
-        <h2 class="post-title">
-            算法导论 第二章 算法基础
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-02
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                
-
-
-
-算法
-最坏情况运行时间
-平均/期望运行时间
-
-
-
-
-1
-插入排序
-Θ(n**2)
-Θ(n**2)
-
-
-2
-归并排序
-Θ(nlgn)
-Θ(nlgn)
-
-
-3
-冒泡排序
-Θ(n**2)
-Θ(n**2)
-
-
-4
-选择排序
-Θ(n**2)
-Θ(n**2)
-
-
-5
-堆排序
-Θ(nlgn)
-
-
-
-6..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-
-<!-- 翻页 pager -->
-
-<ul class="pager">
-    
-    
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p>Convolutional networks are at the core of most stateof-the-art<br>computer vision solutions for a wide variety of<br>tasks. Since 2014 very deep convolutional networks started<br>to become mainstream, yielding substantial gains in various<br>benchmarks. Although increased model size and computational<br>cost tend to translate to immediate quality gains<br>for most tasks (as long as enough labeled data is provided<br>for training), computational efficiency and low parameter<br>count are still enabling factors for various use cases such as<br>mobile vision and big-data scenarios. Here we are exploring<br>ways to scale up networks in ways that aim at utilizing<br>the added computation as efficiently as possible by suitably<br>factorized convolutions and aggressive regularization. We<br>benchmark our methods on the ILSVRC 2012 classification<br>challenge validation set demonstrate substantial gains over<br>the state of the art: 21.2% top-1 and 5.6% top-5 error for<br>single frame evaluation using a network with a computational<br>cost of 5 billion multiply-adds per inference and with<br>using less than 25 million parameters. With an ensemble of<br>4 models and multi-crop evaluation, we report 3.5% top-5<br>error and 17.3% top-1 error</p>
+</blockquote>
+<p>卷积神经网络是目前计算机解决多种多样任务的核心。自从2014年深度的卷积网络成为主流，产生了大量的不同的分支。尽管在大多数任务中增加的模型大小和计算耗费趋于能迅速得到高质量的回报，计算的效率和少量的参数依然能有效作用于很多场景。例如手机和大数据。这里我们探索一种方法能够有效率的计算的放大网络。通过分解卷积模型和积极的正则化。</p>
+<h1 id="Factorization-convolution"><a href="#Factorization-convolution" class="headerlink" title="Factorization convolution"></a>Factorization convolution</h1><p><img src="/2017/11/24/Factorize-convolutions/factorization.jpg" alt="example1"><br>如图将一个5<em>5的卷积转化为2个3</em>3的卷积<br>则参数变为原来的 (3<em>3 + 3</em>3)/(5*5) = 72%<br>但是深度却增加了</p>
+<p>#引用:</p>
+<ul>
+<li>Rethinking the Inception Architecture for Computer Vision <a href="https://arxiv.org/pdf/1512.00567.pdf" target="_blank" rel="external">https://arxiv.org/pdf/1512.00567.pdf</a></li>
 </ul>
 
+                <hr>
 
-        </div>
-        <!-- Sidebar Container -->
-        <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTExNy83NjY2">
+                	<script type="text/javascript">
+                   (function(d, s) {
+                       var j, e = d.getElementsByTagName(s)[0];
 
-            <!-- About Me -->
-            <section class="visible-md visible-lg" style="padding: 0 18px">
-                <div class="short-about">
-                    <!--侧边栏头像-->
-                    
-                    <img src="http://olch8050n.bkt.clouddn.com/dengken.jpg"/>
-                    
-                    <h5><a href="/about/">月牙天冲</a></h5>
-                    
-                    <p>月牙天冲在 Github 上的个人博客</p>
-                    
-                    <hr>
-                    <!-- SNS Link 社交 -->
-                    <ul class="list-inline">
-                        
-                        
-                        
+                       if (typeof LivereTower === 'function') { return; }
 
-                        
+                       j = d.createElement(s);
+                       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                       j.async = true;
 
-                        
-
-                        
-
-                        
-                    </ul>
+                       e.parentNode.insertBefore(j, e);
+                   })(document, 'script');
+                	</script>
+                <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
                 </div>
-            </section>
+                <!-- City版安装代码已完成 -->
 
-            <!-- Featured Tags  标签 -->
-            
-            <section>
-                <div class="tags">
+
+
+                
+
+                <ul class="pager">
                     
                     
-                    <a href="/tags/#机器学习" title="机器学习"
-                       rel="6">机器学习</a>
+                    <li class="next">
+                        <a href="/2017/10/27/Interns-s-Exercise/" data-toggle="tooltip" data-placement="top"
+                           title="Interns's Exercise">Next Post &rarr;</a>
+                    </li>
                     
-                    
-                    
-                    <a href="/tags/#学习笔记" title="学习笔记"
-                       rel="8">学习笔记</a>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    <a href="/tags/#docker" title="docker"
-                       rel="3">docker</a>
-                    
-                    
-                    
-                    
-                    
-                    <a href="/tags/#mysql" title="mysql"
-                       rel="2">mysql</a>
-                    
-                    
-                    
-                    <a href="/tags/#算法导论" title="算法导论"
-                       rel="2">算法导论</a>
-                    
-                    
-                    
-                    <a href="/tags/#python" title="python"
-                       rel="2">python</a>
-                    
-                    
+                </ul>
+
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Factorization-convolution"><span class="toc-text">Factorization convolution</span></a></li></ol>
                 </div>
-            </section>
-            
-
-            
-
+            </div>
         </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#机器学习"
+                           title="机器学习">机器学习</a>
+                        
+                        <a class="tag" href="/tags/#神经网络"
+                           title="神经网络">神经网络</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
     </div>
-</div>
+</article>
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
