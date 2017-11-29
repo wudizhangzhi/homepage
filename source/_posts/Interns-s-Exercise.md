@@ -9,7 +9,7 @@ tags:
 
 
 # Django练习
-##实现一个博客网站。
+## 实现一个博客网站。
   与当前浏览的网站类似，但也多一些附加功能
   1. 登录登出功能
   2. 登录后可以编辑博客的功能
@@ -126,6 +126,16 @@ class Solution(object):
         :rtype: bool
         """
 ```
+### My solution
+```
+class Solution(object):
+    def detectCapitalUse(self, word):
+        """
+        :type word: str
+        :rtype: bool
+        """
+        return word.isupper() or word.istitle()
+```
 
 
 ## 4. distribute candies
@@ -165,6 +175,56 @@ class Solution(object):
     def distributeCandies(self, candies):
         """
         :type candies: List[int]
+        :rtype: int
+        """
+```
+### My solution
+```
+class Solution(object):
+    def distributeCandies(self, candies):
+        """
+        :type candies: List[int]
+        :rtype: int
+        """
+        return min(len(candies)//2, len(set(candies)))
+```
+
+
+## 5.two-sum-ii-input-array-is-sorted
+```
+'''
+Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
+
+The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
+
+You may assume that each input would have exactly one solution and you may not use the same element twice.
+
+Input: numbers={2, 7, 11, 15}, target=9
+Output: index1=1, index2=2
+'''
+
+class Solution(object):
+
+    def twoSum(self, numbers, target):
+        """
+        :type numbers: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+```
+
+## 6.single-number
+```
+'''
+Given an array of integers, every element appears twice except for one. Find that single one.
+
+Note:
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+'''
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
         :rtype: int
         """
 ```
