@@ -228,3 +228,57 @@ class Solution(object):
         :rtype: int
         """
 ```
+
+## 7.reverse-words-in-a-string-iii
+```
+"""
+Given a string, you need to reverse the order
+of characters in each word within a sentence while
+still preserving whitespace and initial word order.
+
+Example 1:
+Input: "Let's take LeetCode contest"
+Output: "s'teL ekat edoCteeL tsetnoc"
+Note: In the string, each word is separated by
+single space and there will not be any extra space in the string.
+"""
+
+
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+```
+
+## 8.sum-of-left-leaves
+```
+'''
+Find the sum of all left leaves in a given binary tree.
+
+Example:
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+
+There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+'''
+
+# Definition for a binary tree node.
+#class TreeNode(object):
+#    def __init__(self, x, left=None, right=None):
+#        self.val = x
+#        self.left = left
+#        self.right = right
+
+class Solution(object):
+    def sumOfLeftLeaves(self, root):
+      """
+      :type root: TreeNode
+      :rtype: int
+      """
+```
