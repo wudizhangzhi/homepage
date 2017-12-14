@@ -15,6 +15,48 @@ tags:
   2. 登录后可以编辑博客的功能
   3. 浏览博客的功能
 
+# GitFlow
+## 1.概览
+![gitflow-git](Interns-s-Exercise/gitflow_git.gif)
+
+## 2.当前分支master
+```
+git pull --rebase master
+```
+
+## 3.第一次开始任务 TDP-xxx， 创建分支,  “/”前面可用fix, feature, hotfix, 对应修改bug，新需求功能，紧急修复
+```
+git checkout -b feature/yourname_TDP-xxx
+```
+
+## 4.不是第一次开始任务，切换分支
+```
+git checkout feature/yourname_TDP-xxx
+```
+
+
+## 5.修改完, 提交修改
+```
+git add *
+git commit -m'自己修改的内容的描述'
+git push origin feature/yourname_TDP-xxx
+```
+
+## 6.自己本地测试完后线上测试,合并， merge, 切换到 dev分支, 并更新dev分支到最新
+```
+git checkout dev
+git pull --rebase origin dev
+git merge --no-ff feature/yourname_TDP-xxx
+```
+## 7.成功后
+```
+git push origin dev
+```
+
+
+## 8.在dev上查看自己修改是否成功, 如果没有问题，在gihub上创建pull request
+![gitflow-git](Interns-s-Exercise/gitflow_pullrequest.gif)
+
 
 # 一些python的练习
 ## 1. Add Digits
