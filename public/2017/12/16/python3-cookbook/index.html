@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        装机｜月牙天冲的博客
+        python3 cookbook｜月牙天冲的博客
         
     </title>
 
-    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/12/13/装机/">
+    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/12/16/python3-cookbook/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -127,14 +127,13 @@
 <!--only post-->
 
 
-<img class="wechat-title-img"
-     src="http://olch8050n.bkt.clouddn.com/backgroup.jpg">
+<img class="wechat-title-img" src="python.png">
 
 
 <style>
     
     header.intro-header {
-        background-image: url('http://olch8050n.bkt.clouddn.com/backgroup.jpg')
+        background-image: url('python.png');
     }
 
     
@@ -145,12 +144,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>装机</h1>
+                    <h1>python3 cookbook</h1>
                     
                     <span class="meta">
                          作者 月牙天冲
                         <span>
-                          日期 2017-12-13
+                          日期 2017-12-16
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -165,7 +164,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            装机
+            python3 cookbook
         </span>
     </div>
 </header>
@@ -176,18 +175,12 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="装机时候一些常用软件的安装"><a href="#装机时候一些常用软件的安装" class="headerlink" title="装机时候一些常用软件的安装"></a>装机时候一些常用软件的安装</h1><ul>
-<li>brew</li>
-<li>pip</li>
-<li>iTerm</li>
-<li>oh-my-zsh</li>
-<li>virtualenv, virtualenvwrapper</li>
-<li>docker</li>
-<li>Atom, PyCharm</li>
-<li>mysql, redis</li>
-</ul>
-<h2 id="1-iTerm"><a href="#1-iTerm" class="headerlink" title="1. iTerm"></a>1. iTerm</h2><h3 id="去-http-www-iterm2-com-下载最新版本"><a href="#去-http-www-iterm2-com-下载最新版本" class="headerlink" title="去 http://www.iterm2.com/ 下载最新版本"></a>去 <a href="http://www.iterm2.com/" target="_blank" rel="external">http://www.iterm2.com/</a> 下载最新版本</h3><h3 id="set-Transparency"><a href="#set-Transparency" class="headerlink" title="set Transparency"></a>set Transparency</h3><h3 id="Set-Font-sSyle"><a href="#Set-Font-sSyle" class="headerlink" title="Set Font sSyle"></a>Set Font sSyle</h3><h3 id="Set-Theme"><a href="#Set-Theme" class="headerlink" title="Set Theme"></a>Set Theme</h3><h2 id="2-oh-my-zsh"><a href="#2-oh-my-zsh" class="headerlink" title="2. oh-my-zsh"></a>2. oh-my-zsh</h2><h3 id="2-1-Install-oh-my-zsh"><a href="#2-1-Install-oh-my-zsh" class="headerlink" title="2.1 Install oh-my-zsh"></a>2.1 Install oh-my-zsh</h3><pre><code>
-</code></pre><h3 id="2-2-zsh-syntax-highlighting"><a href="#2-2-zsh-syntax-highlighting" class="headerlink" title="2.2 zsh-syntax-highlighting"></a>2.2 zsh-syntax-highlighting</h3>
+                <h1 id="第二章-字符串和文本"><a href="#第二章-字符串和文本" class="headerlink" title="第二章: 字符串和文本"></a>第二章: 字符串和文本</h1><h2 id="2-15-字符串中插入变量"><a href="#2-15-字符串中插入变量" class="headerlink" title="2.15 字符串中插入变量"></a>2.15 字符串中插入变量</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>  想要创建一个内嵌变量的字符串，变量被用他的值所表示的字符串替换</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">s = <span class="string">'&#123;name&#125; has &#123;n&#125; apples'</span></div><div class="line"><span class="comment"># 使用参数</span></div><div class="line">s.format(name=<span class="string">'link'</span>, n=<span class="number">10</span>)</div><div class="line"></div><div class="line"><span class="comment"># 使用mapping</span></div><div class="line">s.format_map(&#123;<span class="string">'name'</span>: <span class="string">'link'</span>, <span class="string">'n'</span>: <span class="number">10</span>&#125;)</div><div class="line"></div><div class="line"><span class="comment"># vars()</span></div><div class="line">name = <span class="string">'link'</span></div><div class="line">n = <span class="number">10</span></div><div class="line">s.format_map(vars())</div></pre></td></tr></table></figure>
+<p><strong>vars()</strong> 还有一个有意思的特性就是它也适用于对象实例</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Info</span>:</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name=None, n=None)</span>:</span></div><div class="line">      self.name = your</div><div class="line">      self.n =n</div><div class="line"></div><div class="line">info = Info(name=<span class="string">'link'</span>, n=<span class="number">10</span>)</div><div class="line">s.format_map(vars(info))</div></pre></td></tr></table></figure>
+<p>但是这样还不能很好的处理参数的却是,所以我们还可以定义一个新的dict类<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SafeSub</span><span class="params">(dict)</span>:</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__missing__</span><span class="params">(self, key)</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'&#123;'</span> + key + <span class="string">'&#125;'</span></div><div class="line"></div><div class="line">s.format_map(SafeSub(vars()))</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sub</span><span class="params">(text)</span>:</span></div><div class="line">    <span class="keyword">return</span> text.format_map(safesub(sys._getframe(<span class="number">1</span>).f_locals))</div></pre></td></tr></table></figure></p>
+<h3 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h3>
                 <hr>
 
                 <!-- 来必力City版安装代码 -->
@@ -215,15 +208,10 @@
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/12/16/python3-cookbook/" data-toggle="tooltip" data-placement="top"
-                           title="python3 cookbook">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/12/11/Upload-Python-Package/" data-toggle="tooltip" data-placement="top"
-                           title="Upload Python Package">Next Post &rarr;</a>
+                        <a href="/2017/12/13/装机/" data-toggle="tooltip" data-placement="top"
+                           title="装机">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -236,7 +224,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#装机时候一些常用软件的安装"><span class="toc-text">装机时候一些常用软件的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-iTerm"><span class="toc-text">1. iTerm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#去-http-www-iterm2-com-下载最新版本"><span class="toc-text">去 http://www.iterm2.com/ 下载最新版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set-Transparency"><span class="toc-text">set Transparency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-Font-sSyle"><span class="toc-text">Set Font sSyle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-Theme"><span class="toc-text">Set Theme</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-oh-my-zsh"><span class="toc-text">2. oh-my-zsh</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Install-oh-my-zsh"><span class="toc-text">2.1 Install oh-my-zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-zsh-syntax-highlighting"><span class="toc-text">2.2 zsh-syntax-highlighting</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章-字符串和文本"><span class="toc-text">第二章: 字符串和文本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-15-字符串中插入变量"><span class="toc-text">2.15 字符串中插入变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论"><span class="toc-text">讨论</span></a></li></ol></li></ol></li></ol>
                 </div>
             </div>
         </div>

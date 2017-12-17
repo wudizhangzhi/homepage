@@ -20,36 +20,36 @@ tags:
 ![gitflow-git](Interns-s-Exercise/gitflow_git.gif)
 
 ## 2.当前分支master
-```
+```shell
 git pull --rebase master
 ```
 
 ## 3.第一次开始任务 TDP-xxx， 创建分支,  “/”前面可用fix, feature, hotfix, 对应修改bug，新需求功能，紧急修复
-```
+```shell
 git checkout -b feature/yourname_TDP-xxx
 ```
 
 ## 4.不是第一次开始任务，切换分支
-```
+```shell
 git checkout feature/yourname_TDP-xxx
 ```
 
 
 ## 5.修改完, 提交修改
-```
+```shell
 git add *
 git commit -m'自己修改的内容的描述'
 git push origin feature/yourname_TDP-xxx
 ```
 
 ## 6.自己本地测试完后线上测试,合并， merge, 切换到 dev分支, 并更新dev分支到最新
-```
+```shell
 git checkout dev
 git pull --rebase origin dev
 git merge --no-ff feature/yourname_TDP-xxx
 ```
 ## 7.成功后
-```
+```shell
 git push origin dev
 ```
 
@@ -60,7 +60,7 @@ git push origin dev
 
 # 一些python的练习
 ## 1. Add Digits
-```
+```python
 '''
  Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
 
@@ -77,7 +77,7 @@ class Solution(object):
       pass
 ```
 ### My solution
-```
+```python
 class Solution(object):
     def addDigits(self, num):
       if num==0:
@@ -96,7 +96,7 @@ class Solution(object):
 
 
 ## 2. array partition i
-```
+```python
 '''
  Given an array of 2n integers, your task is to group these integers
  into n pairs of integer, say (a1, b1), (a2, b2), ..., (an, bn)
@@ -124,7 +124,7 @@ class Solution(object):
         pass
 ```
 ### My solution
-```
+```python
 class Solution(object):
 def arrayPairSum(self, nums):
     """
@@ -136,7 +136,7 @@ def arrayPairSum(self, nums):
 
 
 ## 3. detect capital
-```
+```python
 '''
  Given a word, you need to judge whether the usage of capitals in it is right or not.
 
@@ -169,7 +169,7 @@ class Solution(object):
         """
 ```
 ### My solution
-```
+```python
 class Solution(object):
     def detectCapitalUse(self, word):
         """
@@ -181,7 +181,7 @@ class Solution(object):
 
 
 ## 4. distribute candies
-```
+```python
 """
 Given an integer array with even length, where different
 numbers in this array represent different kinds of candies.
@@ -221,7 +221,7 @@ class Solution(object):
         """
 ```
 ### My solution
-```
+```python
 class Solution(object):
     def distributeCandies(self, candies):
         """
@@ -233,7 +233,7 @@ class Solution(object):
 
 
 ## 5.two-sum-ii-input-array-is-sorted
-```
+```python
 '''
 Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
 
@@ -256,7 +256,7 @@ class Solution(object):
 ```
 
 ## 6.single-number
-```
+```python
 '''
 Given an array of integers, every element appears twice except for one. Find that single one.
 
@@ -272,7 +272,7 @@ class Solution(object):
 ```
 
 ## 7.reverse-words-in-a-string-iii
-```
+```python
 """
 Given a string, you need to reverse the order
 of characters in each word within a sentence while
@@ -295,7 +295,7 @@ class Solution(object):
 ```
 
 ## 8.sum-of-left-leaves
-```
+```python
 '''
 Find the sum of all left leaves in a given binary tree.
 
@@ -326,7 +326,7 @@ class Solution(object):
 ```
 
 ## 9.relative-ranks
-```
+```python
 '''
  Given scores of N athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: "Gold Medal", "Silver Medal" and "Bronze Medal".
 
@@ -354,7 +354,7 @@ class Solution(object):
 ```
 
 ## 10.ransom-note
-```
+```python
 '''
  Given an arbitrary ransom note string and another string containing letters
   from all the magazines, write a function that will return true if the ransom
@@ -381,7 +381,7 @@ class Solution(object):
 
 
 ## 11.matrix
-```
+```python
 '''
 Given a matrix consists of 0 and 1, find the distance of the nearest 0 for each cell.
 
@@ -423,7 +423,7 @@ class Solution(object):
 
 
 ## 12.1-bit-and-2-bit-characters
-```
+```python
 '''
 We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11).
 
@@ -457,7 +457,7 @@ class Solution(object):
 ```
 
 ## 13.132 Pattern
-```
+```python
 Given a sequence of n integers a1, a2, ..., an, a 132 pattern is a subsequence ai, aj, ak such that i < j < k and ai < ak < aj. Design an algorithm that takes a list of n numbers as input and checks whether there is a 132 pattern in the list.
 
 Note: n will be less than 15,000.

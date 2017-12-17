@@ -20,7 +20,7 @@ tags:
 
 
 ### 解决方案
-```python3
+```python
 s = '{name} has {n} apples'
 # 使用参数
 s.format(name='link', n=10)
@@ -35,9 +35,9 @@ s.format_map(vars())
 ```
 
 
-```vars()``` 还有一个有意思的特性就是它也适用于对象实例
+**vars()** 还有一个有意思的特性就是它也适用于对象实例
 
-```python3
+```python
 class Info:
   def __init__(self, name=None, n=None):
       self.name = your
@@ -48,7 +48,7 @@ s.format_map(vars(info))
 ```
 
 但是这样还不能很好的处理参数的却是,所以我们还可以定义一个新的dict类
-```python3
+```python
 class SafeSub(dict):
   def __missing__(self, key):
     return '{' + key + '}'
