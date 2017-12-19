@@ -177,17 +177,64 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="装机时候一些常用软件的安装"><a href="#装机时候一些常用软件的安装" class="headerlink" title="装机时候一些常用软件的安装"></a>装机时候一些常用软件的安装</h1><ul>
-<li>brew</li>
-<li>pip</li>
 <li>iTerm</li>
 <li>oh-my-zsh</li>
+<li>brew</li>
+<li>pip</li>
 <li>virtualenv, virtualenvwrapper</li>
 <li>docker</li>
 <li>Atom, PyCharm</li>
 <li>mysql, redis</li>
 </ul>
-<h2 id="1-iTerm"><a href="#1-iTerm" class="headerlink" title="1. iTerm"></a>1. iTerm</h2><h3 id="去-http-www-iterm2-com-下载最新版本"><a href="#去-http-www-iterm2-com-下载最新版本" class="headerlink" title="去 http://www.iterm2.com/ 下载最新版本"></a>去 <a href="http://www.iterm2.com/" target="_blank" rel="external">http://www.iterm2.com/</a> 下载最新版本</h3><h3 id="set-Transparency"><a href="#set-Transparency" class="headerlink" title="set Transparency"></a>set Transparency</h3><h3 id="Set-Font-sSyle"><a href="#Set-Font-sSyle" class="headerlink" title="Set Font sSyle"></a>Set Font sSyle</h3><h3 id="Set-Theme"><a href="#Set-Theme" class="headerlink" title="Set Theme"></a>Set Theme</h3><h2 id="2-oh-my-zsh"><a href="#2-oh-my-zsh" class="headerlink" title="2. oh-my-zsh"></a>2. oh-my-zsh</h2><h3 id="2-1-Install-oh-my-zsh"><a href="#2-1-Install-oh-my-zsh" class="headerlink" title="2.1 Install oh-my-zsh"></a>2.1 Install oh-my-zsh</h3><pre><code>
-</code></pre><h3 id="2-2-zsh-syntax-highlighting"><a href="#2-2-zsh-syntax-highlighting" class="headerlink" title="2.2 zsh-syntax-highlighting"></a>2.2 zsh-syntax-highlighting</h3>
+<h2 id="1-iTerm"><a href="#1-iTerm" class="headerlink" title="1. iTerm"></a>1. iTerm</h2><h3 id="1-1-下载安装"><a href="#1-1-下载安装" class="headerlink" title="1.1 下载安装"></a>1.1 下载安装</h3><p>  &emsp;&emsp;去 <a href="http://www.iterm2.com/" target="_blank" rel="external">官网</a> 下载最新版本, 并安装</p>
+<h3 id="1-2-set-Transparency"><a href="#1-2-set-Transparency" class="headerlink" title="1.2 set Transparency"></a>1.2 set Transparency</h3><p>  <img src="/2017/12/13/装机/transparency.jpg" alt="set-transparency"></p>
+<h3 id="1-3-Set-Font-Style-下载、安装库字体库"><a href="#1-3-Set-Font-Style-下载、安装库字体库" class="headerlink" title="1.3 Set Font Style(下载、安装库字体库)"></a>1.3 Set Font Style(下载、安装库字体库)</h3><ul>
+<li><p>1.3.1 拉取工程</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># https://github.com/powerline/fonts</div><div class="line">git clone git@github.com:powerline/fonts.git</div></pre></td></tr></table></figure>
+</li>
+<li><p>1.3.2 安装字体</p>
+<p>执行./install.sh指令安装所有Powerline字体<br>安装完成后提示所有字体均已下载到/Users/superdanny/Library/Fonts路径下</p>
+</li>
+<li><p>1.3.3 修改iterm设置</p>
+<p><img src="/2017/12/13/装机/change_font.jpg" alt="change_font"></p>
+</li>
+</ul>
+<h3 id="1-4-配色方案"><a href="#1-4-配色方案" class="headerlink" title="1.4 配色方案"></a>1.4 配色方案</h3><ul>
+<li><p><a href="git@github.com:altercation/solarized.git">安装配色方案</a></p>
+</li>
+<li><p>配置配色方案</p>
+<p><img src="/2017/12/13/装机/theme.jpg" alt="theme"></p>
+</li>
+</ul>
+<h2 id="2-oh-my-zsh"><a href="#2-oh-my-zsh" class="headerlink" title="2. oh-my-zsh"></a>2. oh-my-zsh</h2><h3 id="2-1-Install-oh-my-zsh"><a href="#2-1-Install-oh-my-zsh" class="headerlink" title="2.1 Install oh-my-zsh"></a>2.1 Install oh-my-zsh</h3>  <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># via curl</div><div class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</div><div class="line"># via wget</div><div class="line">sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</div></pre></td></tr></table></figure>
+<h3 id="2-2-切换系统使用的shell"><a href="#2-2-切换系统使用的shell" class="headerlink" title="2.2 切换系统使用的shell"></a>2.2 切换系统使用的shell</h3><ul>
+<li><p>通过 <strong><em>cat /etc/shells</em></strong> 命令可以查看当前系统可以使用哪些shell</p>
+</li>
+<li><p>通过 <strong><em>echo $SHELL</em></strong> 命令可以查看我们当前正在使用的shell</p>
+</li>
+<li><p>如果当前的shell不是zsh，我们可以通过 <strong><em>chsh -s /bin/zsh</em></strong>  命令可以将shell切换为shell之zsh，终端重启之后即可生效。</p>
+</li>
+</ul>
+<h3 id="2-3-使用主题-agnoster"><a href="#2-3-使用主题-agnoster" class="headerlink" title="2.3 使用主题(agnoster)"></a>2.3 使用主题(agnoster)</h3><ul>
+<li><p>下载<a href="https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor" target="_blank" rel="external">agnoster</a>主题</p>
+<p>到下载的工程里面运行install文件,主题将安装到~/.oh-my-zsh/themes目录下</p>
+</li>
+<li><p>设置该主题</p>
+<p>进入~/.zshrc打开.zshrc文件，然后将ZSH_THEME后面的字段改为agnoster。ZSH_THEME=”agnoster”（agnoster即为要设置的主题）</p>
+</li>
+</ul>
+<h3 id="2-4-语法高亮-zsh-syntax-highlighting"><a href="#2-4-语法高亮-zsh-syntax-highlighting" class="headerlink" title="2.4 语法高亮(zsh-syntax-highlighting)"></a>2.4 语法高亮(zsh-syntax-highlighting)</h3><ul>
+<li><p>cd到.zshrc所在目录</p>
+</li>
+<li><p>执行指令将工程克隆到当前目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git clone git://github.com/zsh-users/zsh-syntax-highlighting.git</div></pre></td></tr></table></figure>
+</li>
+<li><p>打开.zshrc文件，在最后添加下面内容</p>
+<p>  plugins=(git zsh-syntax-highlighting)</p>
+<p>  保存文件。</p>
+</li>
+</ul>
+
                 <hr>
 
                 <!-- 来必力City版安装代码 -->
@@ -236,7 +283,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#装机时候一些常用软件的安装"><span class="toc-text">装机时候一些常用软件的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-iTerm"><span class="toc-text">1. iTerm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#去-http-www-iterm2-com-下载最新版本"><span class="toc-text">去 http://www.iterm2.com/ 下载最新版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set-Transparency"><span class="toc-text">set Transparency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-Font-sSyle"><span class="toc-text">Set Font sSyle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-Theme"><span class="toc-text">Set Theme</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-oh-my-zsh"><span class="toc-text">2. oh-my-zsh</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Install-oh-my-zsh"><span class="toc-text">2.1 Install oh-my-zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-zsh-syntax-highlighting"><span class="toc-text">2.2 zsh-syntax-highlighting</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#装机时候一些常用软件的安装"><span class="toc-text">装机时候一些常用软件的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-iTerm"><span class="toc-text">1. iTerm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-下载安装"><span class="toc-text">1.1 下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-set-Transparency"><span class="toc-text">1.2 set Transparency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Set-Font-Style-下载、安装库字体库"><span class="toc-text">1.3 Set Font Style(下载、安装库字体库)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-配色方案"><span class="toc-text">1.4 配色方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-oh-my-zsh"><span class="toc-text">2. oh-my-zsh</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Install-oh-my-zsh"><span class="toc-text">2.1 Install oh-my-zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-切换系统使用的shell"><span class="toc-text">2.2 切换系统使用的shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-使用主题-agnoster"><span class="toc-text">2.3 使用主题(agnoster)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-语法高亮-zsh-syntax-highlighting"><span class="toc-text">2.4 语法高亮(zsh-syntax-highlighting)</span></a></li></ol></li></ol></li></ol>
                 </div>
             </div>
         </div>
