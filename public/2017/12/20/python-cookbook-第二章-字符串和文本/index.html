@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="月牙天冲在 Github 上的个人博客">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="月牙天冲" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        python-cookbook 第二章:字符串和文本｜月牙天冲的博客
+        
+    </title>
+
+    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/12/20/python-cookbook-第二章-字符串和文本/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://olch8050n.bkt.clouddn.com/dengken.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    月牙天冲
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src="python.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('python.png');
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>python-cookbook 第二章:字符串和文本</h1>
+                    
+                    <span class="meta">
+                         作者 月牙天冲
+                        <span>
+                          日期 2017-12-20
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
+                        
+                        <a class="tag" href="/tags/#python3-cookbook"
+                           title="python3-cookbook">python3-cookbook</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            python-cookbook 第二章:字符串和文本
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="第二章-字符串和文本"><a href="#第二章-字符串和文本" class="headerlink" title="第二章: 字符串和文本"></a>第二章: 字符串和文本</h1><h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><h3 id="format的语法"><a href="#format的语法" class="headerlink" title="format的语法"></a><a href="https://docs.python.org/3/library/string.html#format-string-syntax" target="_blank" rel="external">format的语法</a></h3>  <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">replacement_field ::=  &quot;&#123;&quot; [field_name] [&quot;!&quot; conversion] [&quot;:&quot; format_spec] &quot;&#125;&quot;</div><div class="line">field_name        ::=  arg_name (&quot;.&quot; attribute_name | &quot;[&quot; element_index &quot;]&quot;)*</div><div class="line">arg_name          ::=  [identifier | integer]</div><div class="line">attribute_name    ::=  identifier</div><div class="line">element_index     ::=  integer | index_string</div><div class="line">index_string      ::=  &lt;any source character except &quot;]&quot;&gt; +</div><div class="line">conversion        ::=  &quot;r&quot; | &quot;s&quot; | &quot;a&quot;</div><div class="line">format_spec       ::=  &lt;described in the next section&gt;</div><div class="line"></div><div class="line">format_spec     ::=  [[fill]align][sign][#][0][width][grouping_option][.precision][type]</div><div class="line">fill            ::=  &lt;any character&gt;</div><div class="line">align           ::=  &quot;&lt;&quot; | &quot;&gt;&quot; | &quot;=&quot; | &quot;^&quot;</div><div class="line">sign            ::=  &quot;+&quot; | &quot;-&quot; | &quot; &quot;</div><div class="line">width           ::=  integer</div><div class="line">grouping_option ::=  &quot;_&quot; | &quot;,&quot;  # 千位数的分隔符</div><div class="line">precision       ::=  integer</div><div class="line">type            ::=  &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;E&quot; | &quot;f&quot; | &quot;F&quot; | &quot;g&quot; | &quot;G&quot; | &quot;n&quot; | &quot;o&quot; | &quot;s&quot; | &quot;x&quot; | &quot;X&quot; | &quot;%&quot;</div></pre></td></tr></table></figure>
+<h2 id="2-15-字符串中插入变量"><a href="#2-15-字符串中插入变量" class="headerlink" title="2.15 字符串中插入变量"></a>2.15 字符串中插入变量</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>  想要创建一个内嵌变量的字符串，变量被用他的值所表示的字符串替换</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">s = <span class="string">'&#123;name&#125; has &#123;n&#125; apples'</span></div><div class="line"><span class="comment"># 使用参数</span></div><div class="line">s.format(name=<span class="string">'link'</span>, n=<span class="number">10</span>)</div><div class="line"><span class="comment">#'link has 10 apples'</span></div><div class="line"></div><div class="line"><span class="comment"># 使用mapping</span></div><div class="line">s.format_map(&#123;<span class="string">'name'</span>: <span class="string">'link'</span>, <span class="string">'n'</span>: <span class="number">10</span>&#125;)</div><div class="line"><span class="comment">#'link has 10 apples'</span></div><div class="line"></div><div class="line"><span class="comment"># vars()</span></div><div class="line">name = <span class="string">'link'</span></div><div class="line">n = <span class="number">10</span></div><div class="line">s.format_map(vars())</div><div class="line"><span class="comment">#'link has 10 apples'</span></div></pre></td></tr></table></figure>
+<p><code>vars()</code> 还有一个有意思的特性就是它也适用于对象实例</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Info</span>:</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name=None, n=None)</span>:</span></div><div class="line">      self.name = your</div><div class="line">      self.n =n</div><div class="line"></div><div class="line">info = Info(name=<span class="string">'link'</span>, n=<span class="number">10</span>)</div><div class="line">s.format_map(vars(info))</div><div class="line"><span class="comment">#'link has 10 apples'</span></div></pre></td></tr></table></figure>
+<p>但是这样还不能很好的处理参数的却是,所以我们还可以定义一个新的dict类<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SafeSub</span><span class="params">(dict)</span>:</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__missing__</span><span class="params">(self, key)</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'&#123;'</span> + key + <span class="string">'&#125;'</span></div><div class="line"></div><div class="line">info = Info(name=<span class="string">'link'</span>)</div><div class="line">s.format_map(SafeSub(vars()))</div><div class="line"><span class="comment">##'link has &#123;n&#125; apples'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sub</span><span class="params">(text)</span>:</span></div><div class="line">    <span class="keyword">return</span> text.format_map(safesub(sys._getframe(<span class="number">1</span>).f_locals))</div><div class="line"><span class="comment"># sub() 函数使用 sys._getframe(1) 返回调用者的栈帧。可以从中访问属性 f_locals</span></div><div class="line"><span class="comment"># 来获得局部变量。 毫无疑问绝大部分情况下在代码中去直接操作栈帧应该是不推荐的。</span></div><div class="line"><span class="comment"># 但是，对于像字符串替换工具函数而言它是非常有用的。 另外，值得注意的是 f_locals</span></div><div class="line"><span class="comment"># 是一个复制调用函数的本地变量的字典。 尽管你可以改变 f_locals 的内容，</span></div><div class="line"><span class="comment"># 但是这个修改对于后面的变量访问没有任何影响。 所以，虽说访问一个栈帧看上去很邪恶，</span></div><div class="line"><span class="comment"># 但是对它的任何操作不会覆盖和改变调用者本地变量的值。</span></div></pre></td></tr></table></figure></p>
+<h3 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h3><p>python 中对于字符串替换有许多其他的解决方案。例如:<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">name = <span class="string">'Guido'</span></div><div class="line">n = <span class="number">37</span></div><div class="line"><span class="string">'%(name)s  %(n)d messages.'</span> % vars()</div><div class="line"></div><div class="line"><span class="keyword">import</span> string</div><div class="line">s = string.Template(<span class="string">'$name has $n messages.'</span>)</div><div class="line">s.substitute(vars())</div></pre></td></tr></table></figure></p>
+<p>但是 format 和 format_map 比这些方法都要先进。所以应该优先使用。而且还可以对齐,填充,格式化等.</p>
+<h2 id="2-16-以指定列宽格式化字符串"><a href="#2-16-以指定列宽格式化字符串" class="headerlink" title="2.16 以指定列宽格式化字符串"></a>2.16 以指定列宽格式化字符串</h2><h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><p>   你有一些长字符串，想以指定的列宽将它们重新格式化。</p>
+<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>使用 <code>textwrap</code> 模块来格式字符串输出,比如<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">s = <span class="string">"Look into my eyes, look into my eyes, the eyes, the eyes, \</span></div><div class="line">the eyes, not around the eyes, don't look around the eyes, \</div><div class="line">look into my eyes, you're under."</div><div class="line"></div><div class="line"><span class="keyword">import</span> textwrap</div><div class="line">textwrap.fill(s, width=<span class="number">20</span>)</div><div class="line"><span class="comment"># Look into my eyes,</span></div><div class="line"><span class="comment"># look into my eyes,</span></div><div class="line"><span class="comment"># the eyes, the eyes,</span></div><div class="line"><span class="comment"># the eyes, not around</span></div><div class="line"><span class="comment"># the eyes, don't look</span></div><div class="line"><span class="comment"># around the eyes,</span></div><div class="line"><span class="comment"># look into my eyes,</span></div><div class="line"><span class="comment"># you're under.</span></div><div class="line"></div><div class="line">textwrap.fill(s, <span class="number">40</span>, initial_indent=<span class="string">'****'</span>)</div><div class="line"><span class="comment"># ****Look into my eyes, look into my</span></div><div class="line"><span class="comment"># eyes, the eyes, the eyes, the eyes, not</span></div><div class="line"><span class="comment"># around the eyes, don't look around the</span></div><div class="line"><span class="comment"># eyes, look into my eyes, you're under.</span></div><div class="line"></div><div class="line">textwrap.fill(s, <span class="number">40</span>, subsequent_indent=<span class="string">'****'</span>)</div><div class="line"><span class="comment"># Look into my eyes, look into my eyes,</span></div><div class="line"><span class="comment"># ****the eyes, the eyes, the eyes, not</span></div><div class="line"><span class="comment"># ****around the eyes, don't look around</span></div><div class="line"><span class="comment"># ****the eyes, look into my eyes, you're</span></div><div class="line"><span class="comment"># ****under.</span></div></pre></td></tr></table></figure></p>
+<h3 id="讨论-1"><a href="#讨论-1" class="headerlink" title="讨论"></a>讨论</h3><p> textwrap 对于字符串打印非常有用。特别是你想打印输出匹配终端大小的时候.你可以使用os.get_terminal_size()<br> <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line">os.get_terminal_size()</div><div class="line"><span class="comment"># os.terminal_size(columns=76, lines=32)</span></div></pre></td></tr></table></figure></p>
+<h2 id="2-17-在字符串中处理html和xml"><a href="#2-17-在字符串中处理html和xml" class="headerlink" title="2.17 在字符串中处理html和xml"></a>2.17 在字符串中处理html和xml</h2><h3 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h3><p>你想将HTML或者XML实体如 &entity; 或 &#code; 替换为对应的文本。 再者，你需要转换文本中特定的字符(比如&lt;, &gt;, 或 &amp;)。</p>
+<h3 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h3><p>如果你想替换文本字符串中的 ‘&lt;’ 或者 ‘&gt;’ ，使用 html.escape() 函数可以很容易的完成。比如：<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">s = <span class="string">'Elements are written as "&lt;tag&gt;text&lt;/tag&gt;".'</span></div><div class="line"><span class="keyword">from</span> html <span class="keyword">import</span> escape, unescape</div><div class="line">es = escape(s)</div><div class="line"><span class="comment"># 'Elements are written as &amp;quot;&amp;lt;tag&amp;gt;text&amp;lt;/tag&amp;gt;&amp;quot;.'</span></div><div class="line"></div><div class="line">escape(s, quote=<span class="keyword">False</span>) <span class="comment"># 不转化 " 和 '</span></div><div class="line"><span class="comment"># 'Elements are written as "&amp;lt;tag&amp;gt;text&amp;lt;/tag&amp;gt;".'</span></div><div class="line"></div><div class="line">unescape(es)</div><div class="line"><span class="comment"># 'Elements are written as "&lt;tag&gt;text&lt;/tag&gt;".'</span></div></pre></td></tr></table></figure></p>
+<h3 id="讨论-2"><a href="#讨论-2" class="headerlink" title="讨论"></a>讨论</h3><h2 id="2-18-字符串令牌解析"><a href="#2-18-字符串令牌解析" class="headerlink" title="2.18 字符串令牌解析"></a>2.18 字符串令牌解析</h2><h2 id="2-19-实现一个简单的递归下降分析器"><a href="#2-19-实现一个简单的递归下降分析器" class="headerlink" title="2.19 实现一个简单的递归下降分析器"></a>2.19 实现一个简单的递归下降分析器</h2><h2 id="2-20-字节字符串上的字符串操作"><a href="#2-20-字节字符串上的字符串操作" class="headerlink" title="2.20 字节字符串上的字符串操作"></a>2.20 字节字符串上的字符串操作</h2>
+                <hr>
+
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTExNy83NjY2">
+                	<script type="text/javascript">
+                   (function(d, s) {
+                       var j, e = d.getElementsByTagName(s)[0];
+
+                       if (typeof LivereTower === 'function') { return; }
+
+                       j = d.createElement(s);
+                       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                       j.async = true;
+
+                       e.parentNode.insertBefore(j, e);
+                   })(document, 'script');
+                	</script>
+                <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+
+
+
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/12/20/python-cookbook-第四章-迭代器与生成器/" data-toggle="tooltip" data-placement="top"
+                           title="python-cookbook 第四章:迭代器与生成器">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/12/13/装机/" data-toggle="tooltip" data-placement="top"
+                           title="装机">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章-字符串和文本"><span class="toc-text">第二章: 字符串和文本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在最前"><span class="toc-text">写在最前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#format的语法"><span class="toc-text">format的语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-15-字符串中插入变量"><span class="toc-text">2.15 字符串中插入变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论"><span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-16-以指定列宽格式化字符串"><span class="toc-text">2.16 以指定列宽格式化字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-1"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-1"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-1"><span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-17-在字符串中处理html和xml"><span class="toc-text">2.17 在字符串中处理html和xml</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-2"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-2"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-2"><span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-18-字符串令牌解析"><span class="toc-text">2.18 字符串令牌解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-19-实现一个简单的递归下降分析器"><span class="toc-text">2.19 实现一个简单的递归下降分析器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-20-字节字符串上的字符串操作"><span class="toc-text">2.20 字节字符串上的字符串操作</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
+                        
+                        <a class="tag" href="/tags/#python3-cookbook"
+                           title="python3-cookbook">python3-cookbook</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 月牙天冲 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- TODO UY BEGIN -->
+<!-- <div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2125928"></script> -->
+<!-- UY END -->
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wudizhangzhi.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','undefined','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://olch8050n.bkt.clouddn.com/dengken.jpg">
+</body>
+
+</html>
