@@ -197,6 +197,7 @@
 <li><p>$$ 表示整行公式:<br><img src="/2017/05/20/常用命令-不定期更新/latex_wholeline.png" alt="todo"></p>
 </li>
 </ul>
+<h1 id="git-统计"><a href="#git-统计" class="headerlink" title="git 统计"></a>git 统计</h1><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 1、统计某人的代码提交量，包括增加，删除</div><div class="line">git log --author=&quot;$(git config --get user.name)&quot; --since=2014-07-01 --until=2016-08-01 --pretty=tformat: --numstat | awk &apos;&#123; add += $1 ; subs += $2 ; loc += $1 - $2 &#125; END &#123; printf &quot;added lines: %s removed lines : %s total lines: %s\n&quot;,add,subs,loc &#125;&apos;</div><div class="line"></div><div class="line"># 2、仓库提交者排名前5（如果看全部，去掉head管道即可）</div><div class="line">git log --pretty=&apos;%aN&apos; | sort | uniq -c | sort -k1 -n -r | head -n 5</div></pre></td></tr></table></figure>
 
                 <hr>
 
@@ -246,7 +247,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-转换图片大小"><span class="toc-text">1.转换图片大小</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-项目启动celery服务"><span class="toc-text">2.项目启动celery服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-项目修改js之前"><span class="toc-text">3.项目修改js之前</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-ssh保持连接"><span class="toc-text">4.ssh保持连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-django-south"><span class="toc-text">5.django south</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-markdown-语法"><span class="toc-text">6. markdown 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-脚注"><span class="toc-text">6.1. 脚注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-内容目录"><span class="toc-text">6.2. 内容目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-待办事宜-Todo-列表"><span class="toc-text">6.3 待办事宜 Todo 列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-表格"><span class="toc-text">6.4 表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-流程图和时序图"><span class="toc-text">6.5 流程图和时序图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-6-LaTeX-公式"><span class="toc-text">6.6 LaTeX 公式</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-转换图片大小"><span class="toc-text">1.转换图片大小</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-项目启动celery服务"><span class="toc-text">2.项目启动celery服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-项目修改js之前"><span class="toc-text">3.项目修改js之前</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-ssh保持连接"><span class="toc-text">4.ssh保持连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-django-south"><span class="toc-text">5.django south</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-markdown-语法"><span class="toc-text">6. markdown 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-脚注"><span class="toc-text">6.1. 脚注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-内容目录"><span class="toc-text">6.2. 内容目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-待办事宜-Todo-列表"><span class="toc-text">6.3 待办事宜 Todo 列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-表格"><span class="toc-text">6.4 表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-流程图和时序图"><span class="toc-text">6.5 流程图和时序图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-6-LaTeX-公式"><span class="toc-text">6.6 LaTeX 公式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-统计"><span class="toc-text">git 统计</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -309,7 +310,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; 月牙天冲 2017
+                    Copyright &copy; 月牙天冲 2018
                     <br>
                     <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
                 </p>

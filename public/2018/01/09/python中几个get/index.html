@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        mysql主从配置｜月牙天冲的博客
+        python中几个get｜月牙天冲的博客
         
     </title>
 
-    <link rel="canonical" href="http://wudizhangzhi.github.io/2017/03/17/mysql主从配置/">
+    <link rel="canonical" href="http://wudizhangzhi.github.io/2018/01/09/python中几个get/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -145,18 +145,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>mysql主从配置</h1>
+                    <h1>python中几个get</h1>
                     
                     <span class="meta">
                          作者 月牙天冲
                         <span>
-                          日期 2017-03-17
+                          日期 2018-01-09
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#mysql"
-                           title="mysql">mysql</a>
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
                         
                     </div>
                 </div>
@@ -165,7 +165,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            mysql主从配置
+            python中几个get
         </span>
     </div>
 </header>
@@ -176,54 +176,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h2 id="1-主服务器"><a href="#1-主服务器" class="headerlink" title="1.主服务器"></a>1.主服务器</h2><h3 id="1-1-设置好配置文件"><a href="#1-1-设置好配置文件" class="headerlink" title="1.1 设置好配置文件"></a>1.1 设置好配置文件</h3><blockquote>
-<p>cnf配置文件一般会有四个，可以根据命令 # ll /usr/share/mysql/*.cnf 查看；</p>
-<p>my-small.cnf    内存少于或等于64M，只提供很少的的数据库服务；</p>
-<p>my-medium.cnf   内存在32M–64M之间而且和其他服务一起使用，例如web；</p>
-<p>my-large.cnf    内存有512M主要提供数据库服务；</p>
-<p>my-huge.cnf     内存有1G到2G，主要提供数据库服务；</p>
-<p>my-innodb-heavy-4G.cnf 内存有4G，主要提供较大负载数据库服务（一般服务器都使用这个）；</p>
-<p>可以根据服务器配置的不同选择不同的cnf配置文件。</p>
-</blockquote>
-<p>my.cnf<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[mysqld]</div><div class="line">server-id       = 1 # 必须，id，一般取IP最后一段</div><div class="line">log-bin = mysql-bin # 必须，二进制日志文件</div><div class="line">expire_logs_days    = 10</div><div class="line">max_binlog_size   = 100M</div><div class="line">binlog_do_db       = include_database_name # 包括的库名称 多个可换行多次设置</div><div class="line">binlog_ignore_db   = include_database_name # 不包括的库名称 多个可换行多次设置</div></pre></td></tr></table></figure></p>
-<h3 id="1-2-配置好给从服务器登陆的账号-重启"><a href="#1-2-配置好给从服务器登陆的账号-重启" class="headerlink" title="1.2 配置好给从服务器登陆的账号,重启"></a>1.2 配置好给从服务器登陆的账号,重启</h3>  <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">grant replication slave on *.* to `tom`@`192.168.1.196` identified by &apos;password&apos;;</div></pre></td></tr></table></figure>
-<h3 id="1-3-查看主服务器状态"><a href="#1-3-查看主服务器状态" class="headerlink" title="1.3 查看主服务器状态"></a>1.3 查看主服务器状态</h3>  <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">mysql&gt; show master status;</div></pre></td></tr></table></figure>
-<h3 id="1-4-备份数据库-如果从服务器也为新建库，则不需要此操作"><a href="#1-4-备份数据库-如果从服务器也为新建库，则不需要此操作" class="headerlink" title="1.4 备份数据库(如果从服务器也为新建库，则不需要此操作)"></a>1.4 备份数据库(如果从服务器也为新建库，则不需要此操作)</h3><blockquote>
-<p>备份数据库的方法有很多种：如果在同一局域网可以直接复制数据库，也可以用工具直接进行数据导入。</p>
-<p>复制数据库用打包的方法：</p>
-<p>cd/data  转到存放Mysql数据库的路径下</p>
-<p>tarcvfz testcreate.tar.gz db/</p>
-<p>再从数据库中进行复制解压</p>
-<p>cd/data</p>
-<p>scp 192.168.1.61:/data/testcreate.tar.gz</p>
-<p>tar xvfz testcreate.tar.gz</p>
-</blockquote>
-<h2 id="2-从服务器"><a href="#2-从服务器" class="headerlink" title="2 从服务器"></a>2 从服务器</h2><h3 id="2-1-配置从库服务my-cnf文件"><a href="#2-1-配置从库服务my-cnf文件" class="headerlink" title="2.1.    配置从库服务my.cnf文件"></a>2.1.    配置从库服务my.cnf文件</h3><pre><code># vi etc/my.cnf 对其进行如下修改：
+                <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dept</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></div><div class="line">        self.x = x</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, instance, owner)</span>:</span></div><div class="line">        print(<span class="string">'__get__: instance:&#123;&#125; owner:&#123;&#125;'</span>.format(instance, owner))</div><div class="line">        <span class="comment"># if not instance:</span></div><div class="line">        <span class="comment">#     return self</span></div><div class="line">        <span class="comment"># else:</span></div><div class="line">        <span class="comment">#     return instance</span></div><div class="line">        super(Dept, self).__get__(instance, owner)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, item)</span>:</span>  <span class="comment">#</span></div><div class="line">        print(<span class="string">'__getattr__: &#123;&#125;'</span>.format(item))</div><div class="line">        super(Dept, self).__getattr__(item)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, item)</span>:</span>  <span class="comment"># “_ getitem_”只适用于所有的“[]”运算符；</span></div><div class="line">        print(<span class="string">'__getitem__: &#123;&#125;'</span>.format(item))</div><div class="line">        super(Dept, self).__getitem__(item)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattribute__</span><span class="params">(self, item)</span>:</span>  <span class="comment"># “_ getattribute_”只适用于所有的“.”运算符；</span></div><div class="line">        print(<span class="string">'__getattribute__: &#123;&#125;'</span>.format(item))</div><div class="line">        super(Dept, self).__getattribute__(item)</div></pre></td></tr></table></figure>
+<h2 id="get"><a href="#get" class="headerlink" title="__get__"></a><code>__get__</code></h2><p><code>__get__</code>将对象作为数据描述符</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Company</span>:</span></div><div class="line">    dept = Dept(<span class="number">20</span>)</div><div class="line"></div><div class="line">c = Company()</div><div class="line">c.dept  <span class="comment"># __get__: instance:&lt;__main__.test2.&lt;locals&gt;.Company object at 0x1059b07f0&gt; owner:&lt;class '__main__.test2.&lt;locals&gt;.Company'&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="getattribute"><a href="#getattribute" class="headerlink" title="__getattribute__"></a><code>__getattribute__</code></h2><p>适用 ‘.’ 运算符</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">d = Dept(<span class="number">15</span>)</div><div class="line">d.x  <span class="comment"># __getattribute__: x</span></div></pre></td></tr></table></figure>
+<h2 id="getattr"><a href="#getattr" class="headerlink" title="__getattr__"></a><code>__getattr__</code></h2><p>当 <code>__getattribute__</code> 找不到触发</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">d = Dept(<span class="number">15</span>)</div><div class="line">d.y  <span class="comment"># __getattribute__: y   __getattr__: y</span></div></pre></td></tr></table></figure>
+<h2 id="getitem"><a href="#getitem" class="headerlink" title="__getitem__"></a><code>__getitem__</code></h2><p>适用 ‘[]’ 运算符</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">d = Dept(<span class="number">15</span>)</div><div class="line">d[<span class="string">'x'</span>]  <span class="comment"># __getitem__: x</span></div></pre></td></tr></table></figure>
 
-Server-id = 2 # 这里ID改为2 因为主库为1;
-
-log-bin = mysql-bin  # 必填项，用于数据同步;
-
-master-host = 192.168.1.60 # 主库IP;
-
-master-user = test # 同步用的账户;
-
-master-password = 123456 # 同步账户密码，主库时的设置;
-
-master-port = 3306 # 同步数据库的端口号。
-</code></pre><h3 id="2-2-重启从库服务器"><a href="#2-2-重启从库服务器" class="headerlink" title="2.2    重启从库服务器"></a>2.2    重启从库服务器</h3><pre><code>#service mysqld restart
-
-如果重启失败则配置文件有问题，需重新检查配置。
-</code></pre><h3 id="2-3-调整复制过来的数据库的权限（如果有从主库复制过来的数据库）"><a href="#2-3-调整复制过来的数据库的权限（如果有从主库复制过来的数据库）" class="headerlink" title="2.3   调整复制过来的数据库的权限（如果有从主库复制过来的数据库）"></a>2.3   调整复制过来的数据库的权限（如果有从主库复制过来的数据库）</h3><pre><code>主库复制过来的数据库权限都为root权限，需要修改为mysql权限
-
-#chown–R mysql:mysql /var/lib/mysql
-
-如果从库是新建的库就不需要进行此步骤
-</code></pre><h3 id="2-4-显示从服务器状态"><a href="#2-4-显示从服务器状态" class="headerlink" title="2.4    显示从服务器状态"></a>2.4    显示从服务器状态</h3><pre><code>进行mysql服务器：
-
-mysql&gt;showslave status\G;
-查看Slave_IO_Running和Slave_SQL_Running都是yes则成功
-</code></pre>
                 <hr>
 
                 <!-- 来必力City版安装代码 -->
@@ -251,15 +213,10 @@ mysql&gt;showslave status\G;
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/05/20/常用命令-不定期更新/" data-toggle="tooltip" data-placement="top"
-                           title="常用命令(不定期更新)">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/03/17/docker-pull被重置的问题/" data-toggle="tooltip" data-placement="top"
-                           title="docker pull被重置的问题">Next Post &rarr;</a>
+                        <a href="/2017/12/27/Git局域网搭建并自动部署/" data-toggle="tooltip" data-placement="top"
+                           title="Git局域网搭建并自动部署">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -272,7 +229,7 @@ mysql&gt;showslave status\G;
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-主服务器"><span class="toc-text">1.主服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-设置好配置文件"><span class="toc-text">1.1 设置好配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-配置好给从服务器登陆的账号-重启"><span class="toc-text">1.2 配置好给从服务器登陆的账号,重启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-查看主服务器状态"><span class="toc-text">1.3 查看主服务器状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-备份数据库-如果从服务器也为新建库，则不需要此操作"><span class="toc-text">1.4 备份数据库(如果从服务器也为新建库，则不需要此操作)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-从服务器"><span class="toc-text">2 从服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-配置从库服务my-cnf文件"><span class="toc-text">2.1.    配置从库服务my.cnf文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-重启从库服务器"><span class="toc-text">2.2    重启从库服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-调整复制过来的数据库的权限（如果有从主库复制过来的数据库）"><span class="toc-text">2.3   调整复制过来的数据库的权限（如果有从主库复制过来的数据库）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-显示从服务器状态"><span class="toc-text">2.4    显示从服务器状态</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#get"><span class="toc-text">__get__</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getattribute"><span class="toc-text">__getattribute__</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getattr"><span class="toc-text">__getattr__</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getitem"><span class="toc-text">__getitem__</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -294,8 +251,8 @@ mysql&gt;showslave status\G;
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#mysql"
-                           title="mysql">mysql</a>
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
                         
                     </div>
                 </section>
