@@ -10,7 +10,6 @@ description: '月牙天冲在 Github 上的个人博客'
 author: 月牙天冲
 language:  zh-Hans
 timezone:  Asia/Shanghai
-header-img: http://olch8050n.bkt.clouddn.com/dengken.jpg
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://wudizhangzhi.github.io
@@ -64,8 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-#theme: landscape
-theme: Anisina
+theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -73,20 +71,6 @@ deploy:
   type: git
   repository: https://github.com/wudizhangzhi/wudizhangzhi.github.io.git
   branch: master
-
-# 其他设置
-cnd-url: "http://olch8050n.bkt.clouddn.com/"
-
-
-# 博文默认图片(如果不设置这一项, 博文标题的图片默认是灰色的)
-post-default-img: http://olch8050n.bkt.clouddn.com/backgroup.jpg
-post-default-img-mobile: http://olch8050n.bkt.clouddn.com/backgroup.jpg
-
-
-
-# Sidebar settings
-sidebar: true
-sidebar-about-description: "月牙天冲在 Github 上的个人博客"
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
@@ -99,11 +83,26 @@ markdown:
     - markdown-it-sub
     - markdown-it-sup
     - markdown-it-emoji
-# # 多说评论
-# duoshuo_username: 6388056881130112000
-# duoshuo_share: true
 
-sidebar-avatar: http://olch8050n.bkt.clouddn.com/dengken.jpg
 #功能标签
 featured-tags: true
 featured-condition-size: 1
+
+jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
