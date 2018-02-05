@@ -44,7 +44,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://olch8050n.bkt.clouddn.com/dengken.jpg" class="js-avatar">
+			<img src="/2018/02/05/assets/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">月牙天冲</a></h1>
@@ -58,7 +58,9 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/学习笔记/">学习笔记</a></li>
+	        
+				<li><a href="/tags/机器学习/">机器学习</a></li>
 	        
 			</ul>
 		</nav>
@@ -98,7 +100,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://olch8050n.bkt.clouddn.com/dengken.jpg" class="js-avatar">
+				<img src="/2018/02/05/assets/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">月牙天冲</h1>
@@ -107,6 +109,8 @@
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>博客<i class="icon icon-quo-right"></i></p>
 			
 			
+			
+				
 			
 				
 			
@@ -127,12 +131,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/学习笔记/">学习笔记</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags/机器学习/">机器学习</a></li>
 		        
 				</ul>
 			</nav>
@@ -148,6 +154,68 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-assets" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/05/assets/">assets</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/05/assets/" class="archive-article-date">
+  	<time datetime="2018-02-05T09:44:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/05/assets/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Word2Vec阅读-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -929,92 +997,6 @@
 
 
   
-    <article id="post-Factorize-convolutions" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/24/Factorize-convolutions/">Factorize convolutions</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/24/Factorize-convolutions/" class="archive-article-date">
-  	<time datetime="2017-11-24T01:52:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
-<p>Convolutional networks are at the core of most stateof-the-art<br>computer vision solutions for a wide variety of<br>tasks. Since 2014 very deep convolutional networks started<br>to become mainstream, yielding substantial gains in various<br>benchmarks. Although increased model size and computational<br>cost tend to translate to immediate quality gains<br>for most tasks (as long as enough labeled data is provided<br>for training), computational efficiency and low parameter<br>count are still enabling factors for various use cases such as<br>mobile vision and big-data scenarios. Here we are exploring<br>ways to scale up networks in ways that aim at utilizing<br>the added computation as efficiently as possible by suitably<br>factorized convolutions and aggressive regularization. We<br>benchmark our methods on the ILSVRC 2012 classification<br>challenge validation set demonstrate substantial gains over<br>the state of the art: 21.2% top-1 and 5.6% top-5 error for<br>single frame evaluation using a network with a computational<br>cost of 5 billion multiply-adds per inference and with<br>using less than 25 million parameters. With an ensemble of<br>4 models and multi-crop evaluation, we report 3.5% top-5<br>error and 17.3% top-1 error</p>
-</blockquote>
-<p>卷积神经网络是目前计算机解决多种多样任务的核心。自从2014年深度的卷积网络成为主流，产生了大量的不同的分支。尽管在大多数任务中增加的模型大小和计算耗费趋于能迅速得到高质量的回报，计算的效率和少量的参数依然能有效作用于很多场景。例如手机和大数据。这里我们探索一种方法能够有效率的计算的放大网络。通过分解卷积模型和积极的正则化。</p>
-<h1 id="Factorization-convolution"><a href="#Factorization-convolution" class="headerlink" title="Factorization convolution"></a>Factorization convolution</h1><p><img src="/2017/11/24/Factorize-convolutions/factorization.jpg" alt="example1"><br>如图将一个5<em>5的卷积转化为2个3</em>3的卷积<br>则参数变为原来的 (3<em>3 + 3</em>3)/(5*5) = 72%<br>但是深度却增加了</p>
-<p>#引用:</p>
-<ul>
-<li>Rethinking the Inception Architecture for Computer Vision <a href="https://arxiv.org/pdf/1512.00567.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1512.00567.pdf</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/24/Factorize-convolutions/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1191,7 +1173,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">rookie&lt;br&gt;&lt;br&gt;谢谢大家</div>
   	  	
     	</section>
     

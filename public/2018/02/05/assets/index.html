@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wudizhangzhi.github.io">
-  <title>Word2Vec阅读(一) | 月牙天冲</title>
+  <title>assets | 月牙天冲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文地址Word2Vec Tutorial - The Skip-Gram Model Word2Vec Tutorial - The Skip-Gram Model This tutorial covers the skip gram neural network architecture for Word2Vec. My intention with this tutorial was to">
-<meta name="keywords" content="学习笔记">
+  <meta name="description" content="月牙天冲在 Github 上的个人博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Word2Vec阅读(一)">
-<meta property="og:url" content="http://wudizhangzhi.github.io/2018/02/05/Word2Vec阅读-一/index.html">
+<meta property="og:title" content="assets">
+<meta property="og:url" content="http://wudizhangzhi.github.io/2018/02/05/assets/index.html">
 <meta property="og:site_name" content="月牙天冲">
-<meta property="og:description" content="原文地址Word2Vec Tutorial - The Skip-Gram Model Word2Vec Tutorial - The Skip-Gram Model This tutorial covers the skip gram neural network architecture for Word2Vec. My intention with this tutorial was to">
+<meta property="og:description" content="月牙天冲在 Github 上的个人博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wudizhangzhi.github.io/2018/02/05/Word2Vec阅读-一/training_data.png">
-<meta property="og:updated_time" content="2018-02-05T09:22:47.000Z">
+<meta property="og:updated_time" content="2018-02-05T09:44:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Word2Vec阅读(一)">
-<meta name="twitter:description" content="原文地址Word2Vec Tutorial - The Skip-Gram Model Word2Vec Tutorial - The Skip-Gram Model This tutorial covers the skip gram neural network architecture for Word2Vec. My intention with this tutorial was to">
-<meta name="twitter:image" content="http://wudizhangzhi.github.io/2018/02/05/Word2Vec阅读-一/training_data.png">
+<meta name="twitter:title" content="assets">
+<meta name="twitter:description" content="月牙天冲在 Github 上的个人博客">
   
   
     <link rel="icon" href="/favicon.png">
@@ -157,55 +154,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Word2Vec阅读-一" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-assets" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Word2Vec阅读(一)
+      assets
     </h1>
   
 
         
-        <a href="/2018/02/05/Word2Vec阅读-一/" class="archive-article-date">
-  	<time datetime="2018-02-05T07:07:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
+        <a href="/2018/02/05/assets/" class="archive-article-date">
+  	<time datetime="2018-02-05T09:44:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文地址<a href="http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/" target="_blank" rel="noopener">Word2Vec Tutorial - The Skip-Gram Model</a></p>
-<h2 id="Word2Vec-Tutorial-The-Skip-Gram-Model"><a href="#Word2Vec-Tutorial-The-Skip-Gram-Model" class="headerlink" title="Word2Vec Tutorial - The Skip-Gram Model"></a>Word2Vec Tutorial - The Skip-Gram Model</h2><blockquote>
-<p>This tutorial covers the skip gram neural network architecture for Word2Vec. My intention with this tutorial was to skip over the usual introductory and abstract insights about Word2Vec, and get into more of the details. Specifically here I’m diving into the skip gram neural network model.</p>
-</blockquote>
-<p>这个教程涵盖了Skip gram nenural network 的 Word2Vec 的结构,<br>我做这个教程的想法是跳过Word2Vec常见的介绍和抽象的概念，直接获取更多的细节。这里我开始潜入Skip gram neural network 模型.</p>
-<h2 id="The-Model"><a href="#The-Model" class="headerlink" title="The Model"></a>The Model</h2><blockquote>
-<p>The skip-gram neural network model is actually surprisingly simple in its most basic form; I think it’s the all the little tweaks and enhancements that start to clutter the explanation.</p>
-</blockquote>
-<p>skip-gram neural network 模型的基本形式惊人的简单。我认为所有的苦恼都源于杂糅解释。</p>
-<blockquote>
-<p>Let’s start with a high-level insight about where we’re going. Word2Vec uses a trick you may have seen elsewhere in machine learning. We’re going to train a simple neural network with a single hidden layer to perform a certain task, but then we’re not actually going to use that neural network for the task we trained it on! Instead, the goal is actually just to learn the weights of the hidden layer–we’ll see that these weights are actually the “word vectors” that we’re trying to learn.</p>
-</blockquote>
-<p>让我们从高阶的视角开始。Word2Vec使用了一个你可能会在其他机器学习里面见过的技巧。我们将会训练一个简单的只有一层隐藏层的神经网络，用来代表一个任务，但是我们不会真的使用那个神经网络在我们的训练的任务上。取而代之的是，我们的目标实际是学习得到隐藏层的权重，我们将会见到这些权重其实才是“word vectors”我们想要学习得到的。</p>
-<h1 id="The-Fake-Task"><a href="#The-Fake-Task" class="headerlink" title="The Fake Task"></a>The Fake Task</h1><blockquote>
-<p>So now we need to talk about this “fake” task that we’re going to build the neural network to perform, and then we’ll come back later to how this indirectly gives us those word vectors that we are really after.</p>
-<p>We’re going to train the neural network to do the following. Given a specific word in the middle of a sentence (the input word), look at the words nearby and pick one at random. The network is going to tell us the probability for every word in our vocabulary of being the “nearby word” that we chose.</p>
-</blockquote>
-<p>所以现在我们需要讨论一下这个将会建立神经网络模型模拟的“假”的任务。</p>
-<p>我们将会训练神经网络做以下的事情。给定一个句子中间的字，在这个字的旁边随机取一个另一个字。神经网络将要告诉我们每一个在字典中的字，成为这个旁边的字的可能性。</p>
-<blockquote>
-<p>The output probabilities are going to relate to how likely it is find each vocabulary word nearby our input word. For example, if you gave the trained network the input word “Soviet”, the output probabilities are going to be much higher for words like “Union” and “Russia” than for unrelated words like “watermelon” and “kangaroo”.</p>
-</blockquote>
-<p>输出的可能性需要与每一个字典中发 有关联。<br>例如，如果你训练网络的输入字“soviet”, “Union” 和 “Russia”的可能性就要远大于“watermelon” and “kangaroo”。</p>
-<blockquote>
-<p>We’ll train the neural network to do this by feeding it word pairs found in our training documents. The below example shows some of the training samples (word pairs) we would take from the sentence “The quick brown fox jumps over the lazy dog.” I’ve used a small window size of 2 just for the example. The word highlighted in blue is the input word.</p>
-</blockquote>
-<p>我们将会训练这个神经网络完成这些通过给他一对在训练文档中找到的字。<br>下面的例子展示了一些训练的示例，我们将会从句子“The quick brown fox jumps over the lazy dog.”中取字。我用了一个小的窗口大小-2，仅仅用于示范。蓝色高亮的部分是输入的字。</p>
-<p><img src="/2018/02/05/Word2Vec阅读-一/training_data.png" alt="training_data"></p>
-
+        
       
 
       
@@ -239,17 +208,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -300,7 +258,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://wudizhangzhi.github.io/2018/02/05/Word2Vec阅读-一/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://wudizhangzhi.github.io/2018/02/05/assets/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,18 +272,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/05/assets/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          assets
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/25/虎扑文字直播命令行学习历程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">虎扑文字直播命令行学习历程</div>
+    <a href="/2018/02/05/Word2Vec阅读-一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Word2Vec阅读(一)</div>
       <i class="icon-circle-right"></i>
     </a>
   
