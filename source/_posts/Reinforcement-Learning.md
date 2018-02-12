@@ -5,6 +5,7 @@ author: "月牙天冲"
 tags:
   - 机器学习
   - 学习笔记
+categories: 机器学习
 ---
 
 

@@ -7,6 +7,7 @@ cdn: 'header-off'
 tags:
   - 学习笔记
   - python3-cookbook
+categories: python-cookbook
 ---
 
 

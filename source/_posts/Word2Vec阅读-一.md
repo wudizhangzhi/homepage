@@ -3,6 +3,7 @@ title: Word2Vec阅读(一)
 date: 2018-02-05 15:07:17
 tags:
   - 学习笔记
+categories: 机器学习
 ---
 
 原文地址[Word2Vec Tutorial - The Skip-Gram Model](http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/)
