@@ -8,8 +8,8 @@ SEOTitle: 月牙天冲的博客
 subtitle: 博客
 description: '月牙天冲在 Github 上的个人博客'
 author: 月牙天冲
-language:  zh-Hans
-timezone:  Asia/Shanghai
+language: zh-Hans
+timezone: Asia/Shanghai
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://wudizhangzhi.github.io
@@ -76,14 +76,14 @@ deploy:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 
-markdown:
-  plugins:
-    - markdown-it-abbr
-    - markdown-it-footnote
-    - markdown-it-ins
-    - markdown-it-sub
-    - markdown-it-sup
-    - markdown-it-emoji
+# markdown:
+#   plugins:
+#     - markdown-it-abbr
+#     - markdown-it-footnote
+#     - markdown-it-ins
+#     - markdown-it-sub
+#     - markdown-it-sup
+#     - markdown-it-emoji
 
 #功能标签
 featured-tags: true
