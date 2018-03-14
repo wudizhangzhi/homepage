@@ -9,7 +9,6 @@ tags:
 ---
 
 # 梯度下降优化算法的概览
-$\theta$
 [原文链接](http://ruder.io/optimizing-gradient-descent/index.html)
 
 # Gradient Descent Variants
@@ -110,7 +109,7 @@ $$
 出现频繁的学习率小，不频繁的学习率大，因此适合应用在分散的数据。
 但是因为分母计算每个参数的平方和，所以容易出现参数爆炸
 
-# Adadelta
+## Adadelta
 
 
 ## RMSprop
