@@ -21,7 +21,7 @@ tags:
 
 ## 2.当前分支master
 ```shell
-git pull --rebase master
+git pull --rebase origin master
 ```
 
 ## 3.第一次开始任务 TDP-xxx， 创建分支,  “/”前面可用fix, feature, hotfix, 对应修改bug，新需求功能，紧急修复
