@@ -2,6 +2,7 @@
 title: PyQt5 and Pycharm
 date: 2018-05-26 17:58:43
 tags:
+  - PyQt
 ---
 
 参考:https://www.jianshu.com/p/8066e8d4f187
