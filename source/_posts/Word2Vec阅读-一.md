@@ -44,8 +44,8 @@ skip-gram neural network 模型的基本形式惊人的简单。我认为所有�
 我们将会训练这个神经网络完成这些通过给他一对在训练文档中找到的字。
 下面的例子展示了一些训练的示例，我们将会从句子“The quick brown fox jumps over the lazy dog.”中取字。我用了一个小的窗口大小-2，仅仅用于示范。蓝色高亮的部分是输入的字。
 
-![training_data](Word2Vec阅读-一/training_data.png)
+![training_data](training_data.png)
 
-![training_data](Word2Vec阅读-一/skip_gram_net_arch.png)
+![training_data](skip_gram_net_arch.png)
 
-![training_data](Word2Vec阅读-一/output_weights_function.png)
+![training_data](output_weights_function.png)
