@@ -9,12 +9,13 @@ tags:
 
 http://yeephycho.github.io/2017/09/16/Loss-Functions-In-Deep-Learning/
 http://www.csuldw.com/2016/03/26/2016-03-26-loss-function/
-
+http://thegrandjanitor.com/2015/08/20/gradient-descent-for-logistic-regression/
+https://blog.csdn.net/happyer88/article/details/46772347
 # Loss Function
 顾名思义，误差损失函数, 用于计算预测和实际值得误差的函数.
 
 ## 前期知识
-### 似然函数[WiKi](https://zh.wikipedia.org/wiki/%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0)
+### 似然函数[[WiKi](https://zh.wikipedia.org/wiki/%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0)]
 似然函数是一种对于统计模型中参数的估计
 #### 似然性 和 概率
 概率是指在已知一些条件的情况下预估结果
@@ -53,10 +54,32 @@ MSG = \dfrac{1}{n} \sum{e^2}
 $$
 
 ## Cross Entropy Loss
+<!-- $$
+\theta = arg\max_{\theta} \dfrac{1}{m} \sum_{i=1}^m LikeHood(Y_i, P(X_i;\theta_i))
+$$
+意为参数$\theta$取多少的时候，获得当前分布的概率最大 -->
+<!--
+$$
+LikeHood(Y, P(Y|X)) = - \log(P(Y|X))
+$$ -->
+
+
 
 $$
-Loss = - \dfrac{1}{m} \sum_{i=0}^m[y_i \cdot log(p_i) + (1-y_i) \cdot log(1 - p_i)]
+J(\theta) = \dfrac{1}{m} \sum_{i=1}^m Cost(h_\theta(x_i), y_i)
 $$
+$$
+Cost(h_\theta(x_i), y_i) =
+\begin{cases}
+-y_i \cdot \log(h_\theta(x_i)) ,    y=1 \\\\
+-(1 - y_i) \cdot (1 - \log(h_\theta(x_i))) ,    x=0 \\\\
+\end{cases}
+$$
+$$
+J(\theta) = - \dfrac{1}{m} \sum_{i=1}^m[yi \cdot log(h_\theta(x_i)) + (1-y_i) \cdot log(1 - h_\theta(x_i))]
+$$
+
+$h_\theta(x_i) = sigmod(x_i)$
 $Sigmod = (1 + e^{-x})^{-1}$
 
 
