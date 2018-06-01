@@ -11,6 +11,7 @@ http://yeephycho.github.io/2017/09/16/Loss-Functions-In-Deep-Learning/
 http://www.csuldw.com/2016/03/26/2016-03-26-loss-function/
 http://thegrandjanitor.com/2015/08/20/gradient-descent-for-logistic-regression/
 https://blog.csdn.net/happyer88/article/details/46772347
+https://zh.wikipedia.org/wiki/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95
 # Loss Function
 顾名思义，误差损失函数, 用于计算预测和实际值得误差的函数.
 
@@ -84,3 +85,37 @@ $Sigmod = (1 + e^{-x})^{-1}$
 
 
 ## L1 Loss
+
+# Back Bropagation(向后传播)
+![backpropagation](backpropagation2.png)
+
+其中:
+$$
+net_i: 第i个神经元的输入 \\\\
+o_i: 第i个神经元的输出  \\\\
+\omega_{i, j}: 第i个神经元到下一层第j个神经元的权重 \\\\
+$$
+
+因此可得:
+$$
+o_i = \gamma(net_i) \\\\
+E = \sum[t\cdot\log(y) + (1-t)\cdot\log(1-y)]
+$$
+
+其中:
+ - $\gamma$ 是激活函数
+ - **E** 是误差, **y**是为输出神经元的实际输出， **t**为样本的预期输出
+
+所以求误差对于权重的偏微分:
+$$
+\begin{align}
+\dfrac{\sigma(E)}{\sigma(\omega_{i, j})} &= \dfrac{\sigma(E)}{\sigma(o_j)} \cdot \dfrac{\sigma(o_j)}{\sigma(net_j)} \cdot \dfrac{\sigma(net_j)}{\sigma(\omega_{i, j})} \\\\
+\end{align}
+$$
+
+
+因为
+
+$$
+\dfrac{\sigma(E)}{o_j} = \dfrac{\sigma}{\sigma(o_j)} \cdot [t \cdot \log(y)]
+$$
