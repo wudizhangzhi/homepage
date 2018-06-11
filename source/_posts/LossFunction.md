@@ -119,3 +119,9 @@ $$
 $$
 \dfrac{\sigma(E)}{o_j} = \dfrac{\sigma}{\sigma(o_j)} \cdot [t \cdot \log(y)]
 $$
+
+
+
+$$
+权重Weight = Max(1, Ceil(\log_2(0.34 \cdot a^2 + 0.33 \cdot b^2 + 0.33 \cdot c^2)))
+$$
