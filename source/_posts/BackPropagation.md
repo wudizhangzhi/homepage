@@ -100,8 +100,8 @@ $$
 \dfrac{\sigma(E)}{\sigma(o_j)} &= \dfrac{\sum_{l \in L}E_l}{\sigma(o_j)} \\\\
 &= \sum_{l \in L}\dfrac{E}{\sigma(o_j)} \\\\
 &= \sum_{l \in L}\dfrac{E}{\sigma(o_l)} \cdot \dfrac{\sigma(o_l)}{\sigma(net_l)} \cdot \dfrac{\sigma(net_l)}{\sigma(o_j)} \\\\
-&= \sum_{l \in L}\dfrac{E}{\sigma(o_l)} \cdot \dfrac{\sigma(o_l)}{\sigma(net_l)} \cdot \dfrac{(\omega_{l, j} \cdot o_j + b_l)}{\sigma(o_j)} \\\\
-&= \sum_{l \in L}\dfrac{E}{\sigma(o_l)} \cdot \dfrac{\sigma(o_l)}{\sigma(net_l)} \cdot \omega_{l, j} \\\\
+&= \sum_{l \in L}\dfrac{E}{\sigma(o_l)} \cdot \dfrac{\sigma(o_l)}{\sigma(net_l)} \cdot \dfrac{(\omega_{j, l} \cdot o_j + b_j)}{\sigma(o_j)} \\\\
+&= \sum_{l \in L}\dfrac{E}{\sigma(o_l)} \cdot \dfrac{\sigma(o_l)}{\sigma(net_l)} \cdot \omega_{j, l} \\\\
 \end{align}
 $$
 其中:
@@ -120,7 +120,7 @@ $$
 \delta_j &=
 \begin{cases}
 \dfrac{t - y}{y\cdot(1 - y)} \cdot o_j \cdot (1 - o_j) , &当j是输出层的神经元时 \\\\
-\sum_{l \in L}(\delta_l \cdot \omega_{l, j} ) \cdot o_j \cdot (1 - o_j), &当j是隐藏层的神经元时  \\\\
+\sum_{l \in L}(\delta_l \cdot \omega_{j, l} ) \cdot o_j \cdot (1 - o_j), &当j是隐藏层的神经元时  \\\\
 \end{cases}
 \end{align}
 $$
@@ -140,7 +140,7 @@ $$
 同理:
 $$
 \begin{align}
-b_{i, j} &=  b_{i, j} \cdot \dfrac{\sigma(E)}{\sigma(b_{i, j})} \\\\
-&= b_{i, j} - \eta \cdot \delta_i
+b_{i, j} &=  b_{i, j} - \eta \cdot \dfrac{\sigma(E)}{\sigma(b_{i, j})} \\\\
+&= b_{i, j} - \eta \cdot \delta_j
 \end{align}
 $$
