@@ -130,7 +130,7 @@ $$
 $$
 \begin{align}
 \omega_{i, j} &= \omega_{i, j} - \eta \cdot \dfrac{\sigma(E)}{\sigma(\omega_{i, j})} \\\\
-&= \omega_{i, j} - \eta \cdot \delta_i \cdot o_i
+&= \omega_{i, j} - \eta \cdot \delta_j \cdot o_i
 \end{align}
 $$
 
