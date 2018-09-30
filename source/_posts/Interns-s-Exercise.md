@@ -17,7 +17,7 @@ tags:
 
 # GitFlow
 ## 1.概览
-![gitflow-git](Interns-s-Exercise/gitflow_git.gif)
+![gitflow-git](gitflow_git.gif)
 
 ## 2.当前分支master
 ```shell
@@ -55,7 +55,7 @@ git push origin dev
 
 
 ## 8.在dev上查看自己修改是否成功, 如果没有问题，在gihub上创建pull request
-![gitflow-git](Interns-s-Exercise/gitflow_pullrequest.gif)
+![gitflow-git](gitflow_pullrequest.gif)
 
 
 # 一些python的练习
