@@ -1,5 +1,5 @@
 ---
-title: Decision Tree
+title: DecisionTree
 date: 2018-08-31 15:37:28
 author: "月牙天冲"
 mathjax: true
@@ -15,7 +15,7 @@ tags:
 
 假设有如下数据:
 
-![data](decision_tree.jpg)
+{% asset_img decision_tree.jpg decision_tree %}
 
 ## 信息熵(information entropy)
 

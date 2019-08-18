@@ -37,7 +37,8 @@ tags:
 Ωω   欧米伽 omiga
 ```
 # Back Bropagation(向后传播)
-![backpropagation](backpropagation2.png)
+{% asset_img backpropagation2.png backpropagation %}
+
 
 其中:
 $$
